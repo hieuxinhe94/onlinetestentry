@@ -48,7 +48,7 @@ namespace ITSOL.TestonlineServices.Migrations
 
                     b.Property<string>("Key");
 
-                    b.Property<string>("Value");
+                    b.Property<string>("Val");
 
                     b.HasKey("Id");
 

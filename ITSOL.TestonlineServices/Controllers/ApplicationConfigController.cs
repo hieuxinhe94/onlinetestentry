@@ -28,6 +28,7 @@ namespace ITSOL.TestonlineServices.Controllers
         }
 
         [HttpGet]
+        [Route("GetByKey")]
         public IActionResult GetByKey(string key)
         {
             return Ok();

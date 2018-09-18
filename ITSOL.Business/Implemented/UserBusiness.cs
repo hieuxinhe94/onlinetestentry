@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using ITSOL.Business.Interfaces;
-using TSOL.DAL.Base;
+using ITSOL.Business.Interfaces; 
+using TSOL.DAL.Repository;
 using TSOL.DAL.Repository.RepositoryDomain;
 using TSOL.Domain.Entities;
 
