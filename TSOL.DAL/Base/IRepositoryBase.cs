@@ -1,4 +1,5 @@
-﻿  
+﻿
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -10,6 +11,7 @@ namespace TSOL.DAL.Base
     {
         IEnumerable<T> GetAll();
         IEnumerable<T> FindWithCondition(Expression<Func<T, bool>> expression);
+        DbSet<T> Get();
         T GetById(int id);
         int Add(T entity);
         int Update(T enity);

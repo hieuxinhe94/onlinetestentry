@@ -48,12 +48,12 @@ namespace ITSOL.TestonlineServices.Controllers
             var isValid = userBusiness.Authenticate(viewModel.Name, viewModel.Password);
             if (isValid)
             {
-                var thisUser = userBusiness.GetUser(1);
+                var thisUser = userBusiness.GetUser(viewModel.Name);
                 var viewModelFromEntity = mapper.Map<User>(thisUser);
                 var defaultRoles = "GUESS"; // SET your user role here!
                 var tokenStr = BuildToken(viewModelFromEntity, defaultRoles);
-                // respon = Ok(new { token = tokenStr, message = "another message" });
-                respon = Ok(tokenStr);
+                respon = Ok(new { token = tokenStr, message = "another message" });
+               // respon = Ok(tokenStr);
             }
             return respon;
         }
@@ -64,7 +64,7 @@ namespace ITSOL.TestonlineServices.Controllers
             IdentityOptions _options = new IdentityOptions();
             var claims = new[] {
                 new Claim(JwtRegisteredClaimNames.Sub, myUser.Name ),
-                new Claim(JwtRegisteredClaimNames.Email, myUser.Email),
+                // new Claim(JwtRegisteredClaimNames.Email, myUser.Email),
                
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(_options.ClaimsIdentity.UserNameClaimType, myUser.Name),

@@ -266,8 +266,8 @@ namespace ITSOL.TestonlineServices.Migrations
 
             modelBuilder.Entity("TSOL.Domain.Entities.Answer", b =>
                 {
-                    b.HasOne("TSOL.Domain.Entities.Question", "Question")
-                        .WithMany()
+                    b.HasOne("TSOL.Domain.Entities.Question")
+                        .WithMany("Answers")
                         .HasForeignKey("QuestionId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -308,8 +308,8 @@ namespace ITSOL.TestonlineServices.Migrations
 
             modelBuilder.Entity("TSOL.Domain.Entities.Question", b =>
                 {
-                    b.HasOne("TSOL.Domain.Entities.Quiz", "Quiz")
-                        .WithMany()
+                    b.HasOne("TSOL.Domain.Entities.Quiz")
+                        .WithMany("Questions")
                         .HasForeignKey("QuizId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

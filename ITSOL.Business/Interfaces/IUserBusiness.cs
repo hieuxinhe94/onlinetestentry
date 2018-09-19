@@ -9,6 +9,8 @@ namespace ITSOL.Business.Interfaces
     {
         bool Authenticate(string name, string password);
         User GetUser(int id);
+        User GetUser(string name);
         IEnumerable<User> GetUsers();
+        int Create(User user);
     }
 }

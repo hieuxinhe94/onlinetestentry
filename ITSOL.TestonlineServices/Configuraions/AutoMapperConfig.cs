@@ -14,6 +14,11 @@ namespace ITSOL.TestonlineServices.Configuraions
             // Mapper : ViewModel -> Entities 
 
             CreateMap<CandidateViewModel, Candidate>();
+            CreateMap<UserViewModel, User>();
+            CreateMap<SubjectViewModel, Quiz>();
+            CreateMap<QuizViewModel, Quiz>();
+            CreateMap<QuestionViewModel, Question>();
+            CreateMap<AnswerViewModel, Answer>();
         }
 
     }

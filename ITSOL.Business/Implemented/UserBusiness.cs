@@ -21,9 +21,24 @@ namespace ITSOL.Business.Implemented
         public bool Authenticate(string name, string password)
          => this._userRepository.FindWithCondition(item => item.Name == name.ToLower() && item.Password == password.ToLower()).Any();
 
+        public int Create(User user)
+        {
+            if (user != null && user.Id ==0 )
+            {
+                this._userRepository.Add(user);
+                return 1;
+            }
+            return 0;
+        }
+
         public User GetUser(int id)
         {
             return _repositoryWrapper.UserRepository.GetById(id);
+        }
+
+        public User GetUser(string name)
+        {
+            return _repositoryWrapper.UserRepository.FindWithCondition(item => item.Name == name.ToLower()).FirstOrDefault();
         }
 
         public IEnumerable<User> GetUsers()

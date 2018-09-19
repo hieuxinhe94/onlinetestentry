@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 using TSOL.DAL.Base;
 using TSOL.Domain;
 
@@ -14,6 +15,7 @@ namespace TSOL.DAL.Repository
         public RepositoryBase(ApplicationContext context)
         {
             _context = context;
+            
         }
 
         public int Add(T entity)
@@ -30,10 +32,11 @@ namespace TSOL.DAL.Repository
             }
         }
 
+
         public IEnumerable<T> FindWithCondition(Expression<Func<T, bool>> expression)
         {
             // lấy kết quả ra dần dần.
-            yield return this._context.Set<T>().Find(expression);
+             return this._context.Set<T>().Where(expression);
         }
 
         public IEnumerable<T> GetAll()
@@ -53,17 +56,49 @@ namespace TSOL.DAL.Repository
 
         public int Update(T enity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _context.Update(enity);
+                Save();
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public int Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                T t = GetById(id);
+                if (t!= null)
+                {
+                    _context.Remove(t);
+                    Save();
+                    return 1;
+                }
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public int AddMany(List<T> ls)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _context.AddRange(ls);
+                Save();
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public int UpdateMany(List<T> ls)
@@ -74,6 +109,11 @@ namespace TSOL.DAL.Repository
         public int DeleleMany(List<int> ls)
         {
             throw new NotImplementedException();
+        }
+
+        public DbSet<T> Get()
+        {
+            return this._context.Set<T>();
         }
     }
 }

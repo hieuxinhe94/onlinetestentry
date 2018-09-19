@@ -15,11 +15,16 @@ namespace ITSOL.TestonlineServices.Configuraions
             _next = next;
         }
 
-        public async Task Invoke(HttpContext context)
+        public async Task Invoke(HttpContext httpContext)
         {
             try
             {
-                await _next.Invoke(context);
+                //httpContext.Response.Headers.Add("Access-Control-Allow-Origin", "*");
+                //httpContext.Response.Headers.Add("Access-Control-Allow-Credentials", "true");
+                //httpContext.Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, Accept");
+                //httpContext.Response.Headers.Add("Access-Control-Allow-Methods", "POST,GET,PUT,PATCH,DELETE,OPTIONS");
+
+                await _next.Invoke(httpContext);
             }
             catch (Exception ex)
             {
