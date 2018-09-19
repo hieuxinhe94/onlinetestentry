@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ITSOL.TestonlineServices.Migrations
 {
-    public partial class FirstInitialize : Migration
+    public partial class FirstInitial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -235,6 +235,24 @@ namespace ITSOL.TestonlineServices.Migrations
                         principalTable: "CandidateQuizAssignAndResult",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Quiz",
+                columns: new[] { "Id", "DateCreated", "DateModified", "Description", "Name", "Status", "TimeUpMinutes", "Title" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "This is java quiz", "java", true, 20f, "Java Quiz" },
+                    { 2, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "This is english quiz", "english", true, 20f, "English Quiz" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "User",
+                columns: new[] { "Id", "CreatedDate", "Email", "LastActivateDate", "Name", "Password", "Status" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "emp1@email.com", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "emp1", "123", 1 },
+                    { 2, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "emp2@email.com", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "emp2", "123", 1 }
                 });
 
             migrationBuilder.CreateIndex(

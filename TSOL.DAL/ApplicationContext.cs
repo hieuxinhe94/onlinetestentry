@@ -22,5 +22,17 @@ namespace TSOL.DAL
         public DbSet<History> History { get; set; }
         public DbSet<User> User { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>().HasData(
+            new User { Id= 1, Name = "emp1", Email = "emp1@email.com", Password = "123" },
+            new User { Id = 2, Name = "emp2", Email = "emp2@email.com", Password = "123" });
+
+            modelBuilder.Entity<Quiz>().HasData(
+            new Quiz { Id = 1, Name = "java", Title = "Java Quiz", Description = "This is java quiz", TimeUpMinutes = 20 },
+            new Quiz { Id = 2, Name = "english", Title = "English Quiz", Description = "This is english quiz", TimeUpMinutes = 20 });
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

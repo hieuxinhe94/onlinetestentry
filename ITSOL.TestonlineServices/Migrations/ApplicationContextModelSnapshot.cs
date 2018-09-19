@@ -239,6 +239,11 @@ namespace ITSOL.TestonlineServices.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Quiz");
+
+                    b.HasData(
+                        new { Id = 1, DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Description = "This is java quiz", Name = "java", Status = true, TimeUpMinutes = 20f, Title = "Java Quiz" },
+                        new { Id = 2, DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Description = "This is english quiz", Name = "english", Status = true, TimeUpMinutes = 20f, Title = "English Quiz" }
+                    );
                 });
 
             modelBuilder.Entity("TSOL.Domain.Entities.User", b =>
@@ -262,6 +267,11 @@ namespace ITSOL.TestonlineServices.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("User");
+
+                    b.HasData(
+                        new { Id = 1, CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Email = "emp1@email.com", LastActivateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Name = "emp1", Password = "123", Status = 1 },
+                        new { Id = 2, CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Email = "emp2@email.com", LastActivateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Name = "emp2", Password = "123", Status = 1 }
+                    );
                 });
 
             modelBuilder.Entity("TSOL.Domain.Entities.Answer", b =>
