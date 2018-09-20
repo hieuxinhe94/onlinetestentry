@@ -13,14 +13,22 @@ namespace ITSOL.Business.Implemented
         private IQuestionRepository questionRepository;
         private IAnswerRepository answerRepository;
 
-        public QuizBusiness(IQuizRepository _quizRepository, IQuestionRepository _questionRepository , IAnswerRepository _answerRepository)
+        public QuizBusiness(IQuizRepository _quizRepository, IQuestionRepository _questionRepository, IAnswerRepository _answerRepository)
         {
             this.quizRepository = _quizRepository;
             this.questionRepository = _questionRepository;
             this.answerRepository = _answerRepository;
-        } 
+        }
 
-        public int Create(Quiz quiz) => quizRepository.Add(quiz);
+        public int Create(Quiz quiz)
+        {
+            if (this.GetQuizByName(quiz.Name) == null )
+            {
+                quizRepository.Add(quiz);
+                return 1;
+            }
+            return 0;
+        }
 
 
         public int CreateNewSubject(Quiz quiz)

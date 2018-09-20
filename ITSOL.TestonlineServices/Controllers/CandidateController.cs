@@ -28,13 +28,28 @@ namespace ITSOL.TestonlineServices.Controllers
         }
 
         [HttpPost]
-        public IActionResult Insert([FromBody] CandidateViewModel candidateVm )
+        [Route("GetQuizAssigned")]
+        public IActionResult GetQuizAssigned(int id)
+        {
+            return Ok(candidateBusiness.GetQuizAssigned(id));
+        }
+
+        [HttpPost]
+        [Route("InsertOrUpdate")]
+        public IActionResult InsertOrUpdate([FromBody] CandidateViewModel candidateVm )
         {
             if (ModelState.IsValid)
             {
-                return Ok(candidateBusiness.RegisterNewCandidate(mapper.Map<Candidate>(candidateVm)));
+                return Ok(candidateBusiness.RegisterNewOrUpdateCandidate(mapper.Map<Candidate>(candidateVm), candidateVm.SubjectNames));
             }
             return BadRequest();
+        }
+
+        [HttpGet]
+        [Route("Delete")]
+        public IActionResult Delete(int id)
+        {
+            return Ok(candidateBusiness.RemoveCandidate(id));
         }
     }
 }

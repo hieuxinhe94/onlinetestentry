@@ -15,10 +15,10 @@ D:\Projects\ITSOL.TestonlineServices\TSOL.Domain\bin\Debug\netstandard2.0\ITSOL.
 D:\Projects\ITSOL.TestonlineServices\TSOL.Domain\bin\Debug\netstandard2.0\ITSOL.Domain.pdb
 D:\Projects\ITSOL.TestonlineServices\TSOL.Domain\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.dll
 D:\Projects\ITSOL.TestonlineServices\TSOL.Domain\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.xml
+D:\Projects\ITSOL.TestonlineServices\TSOL.Domain\obj\Debug\netstandard2.0\ITSOL.Domain.csprojAssemblyReference.cache
 D:\Projects\ITSOL.TestonlineServices\TSOL.Domain\obj\Debug\netstandard2.0\ITSOL.Domain.csproj.CoreCompileInputs.cache
 D:\Projects\ITSOL.TestonlineServices\TSOL.Domain\obj\Debug\netstandard2.0\ITSOL.Domain.AssemblyInfoInputs.cache
 D:\Projects\ITSOL.TestonlineServices\TSOL.Domain\obj\Debug\netstandard2.0\ITSOL.Domain.AssemblyInfo.cs
 D:\Projects\ITSOL.TestonlineServices\TSOL.Domain\obj\Debug\netstandard2.0\ITSOL.Domain.csproj.CopyComplete
 D:\Projects\ITSOL.TestonlineServices\TSOL.Domain\obj\Debug\netstandard2.0\ITSOL.Domain.dll
 D:\Projects\ITSOL.TestonlineServices\TSOL.Domain\obj\Debug\netstandard2.0\ITSOL.Domain.pdb
-D:\Projects\ITSOL.TestonlineServices\TSOL.Domain\obj\Debug\netstandard2.0\ITSOL.Domain.csprojAssemblyReference.cache

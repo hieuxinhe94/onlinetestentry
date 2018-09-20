@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using ITSOL.Business.Interfaces;
-using TSOL.DAL.Base;
+using ITSOL.DAL.Repository.RepositoryDomain; 
 using TSOL.DAL.Repository.RepositoryDomain;
 using TSOL.Domain.Entities;
 
@@ -9,13 +9,27 @@ namespace ITSOL.Business.Implemented
 {
     public class CandidateBusiness : ICandidateBusiness
     {
-        
+        private IQuizRepository _quizRepository;
+        private IQuizBusiness _quizBusiness;
         private ICandidateRepository _candidateRepository;
+        private ICandidateQuizAssignRepository _candidateQuizAssignRepository;
+        private ICandidateQuizAssignResultRepository _candidateQuizAssignResultRepository;
+        private ICandidateQuizAssignResultDetailRepository _candidateQuizAssignResultDetailRepository;
 
-        public CandidateBusiness( ICandidateRepository candidateRepository)
+        public CandidateBusiness(
+            IQuizBusiness quizBusiness,
+            IQuizRepository quizRepository,
+            ICandidateRepository candidateRepository, 
+            ICandidateQuizAssignRepository candidateQuizAssignRepository, 
+            ICandidateQuizAssignResultRepository candidateQuizAssignResultRepository, 
+            ICandidateQuizAssignResultDetailRepository candidateQuizAssignResultDetailRepository)
         {
-             
+            this._quizBusiness = quizBusiness;
+            this._quizRepository = quizRepository;
             this._candidateRepository = candidateRepository;
+            this._candidateQuizAssignRepository = candidateQuizAssignRepository;
+            this._candidateQuizAssignResultRepository = candidateQuizAssignResultRepository;
+            this._candidateQuizAssignResultDetailRepository = candidateQuizAssignResultDetailRepository;
         }
 
         public bool Authenticate(string name, string password)
@@ -42,20 +56,45 @@ namespace ITSOL.Business.Implemented
             return this._candidateRepository.GetById(id);
         }
 
-        public int RegisterNewCandidate(Candidate candidate)
+        public CandidateQuizAssignedViewModel GetQuizAssigned(int candidateId)
+        {
+           var tmp = this._candidateQuizAssignRepository.FindWithCondition((q) => q.CandidateId == candidateId)?.ToList();
+            return new CandidateQuizAssignedViewModel()
+            {
+                Id = tmp.FirstOrDefault().Id,
+                Candidate = tmp.FirstOrDefault().Candidate,
+                Quizes = tmp.Select(t => t.Quiz).ToList(),
+                DateStart = tmp.FirstOrDefault().DateStart,
+                DateExprire = tmp.FirstOrDefault().DateExprire,
+                CandidateId = tmp.FirstOrDefault().CandidateId
+            };
+        }
+
+        public int RegisterNewOrUpdateCandidate(Candidate candidate, string subject)
         {
             if (candidate != null && candidate.Id == 0)
             {
-                return this._candidateRepository.Add(candidate);
+                this._candidateRepository.Add(candidate);
+
+                // also add quiz assign subject
+                this._candidateQuizAssignRepository.Add(new CandidateQuizAssign { CandidateId = candidate.Id, QuizId =
+                       _quizBusiness.GetQuizByName(subject.ToLower()).Id,
+                       Status = true,
+                });
+                return 1;
             }
-            return 0;
+            else if (candidate != null && candidate.Id != 0)
+            {
+                this._candidateRepository.Update(candidate);
+            }
+                return 0;
         }
 
-        public int RemoveCandidate(Candidate candidate)
+        public int RemoveCandidate(int id)
         {
-            if (candidate != null && candidate.Id > 0)
+            if (id > 0)
             {
-                return this._candidateRepository.Delete(candidate.Id);
+                return this._candidateRepository.Delete(id);
             }
             return 0;
         }

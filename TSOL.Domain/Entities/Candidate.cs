@@ -14,6 +14,7 @@ namespace TSOL.Domain.Entities
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
         public DateTime ? Birthdate { get; set; }
+         
 
         public bool Status { get; set; } = true;
         public DateTime ? CreatedDate { get; set; }  

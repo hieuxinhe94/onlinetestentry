@@ -77,7 +77,7 @@ namespace ITSOL.TestonlineServices.Controllers
          
         [HttpPost]
         [Route("deleteQuestion")]
-        public IActionResult DeleteQuestion(int id)
+        public IActionResult DeleteQuestion([FromBody] int id)
         {
 
             return Ok(this.quizBusiness.DeleteQuestionOfQuiz(id));
