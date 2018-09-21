@@ -1,4 +1,6 @@
-﻿ 
+﻿
+
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TSOL.Domain.Entities
 {
@@ -8,8 +10,10 @@ namespace TSOL.Domain.Entities
         public string Content { get; set; }
 
         public int QuestionId { get; set; }
-         // public virtual Question Question { get; set; }
-
+        // public virtual Question Question { get; set; } 
         public bool IsRightAnswer { get; set; } = false;
+
+        [NotMapped]
+        public bool HasSelected { get; set; } = false;
     }
 }

@@ -29,9 +29,16 @@ namespace ITSOL.TestonlineServices.Controllers
 
         [HttpPost]
         [Route("GetQuizAssigned")]
-        public IActionResult GetQuizAssigned(int id)
+        public IActionResult GetQuizAssigned([FromBody] int id)
         {
             return Ok(candidateBusiness.GetQuizAssigned(id));
+        }
+
+        [HttpGet]
+        [Route("getCandidateByName")]
+        public IActionResult getCandidateByName( string name)
+        {
+            return Ok(candidateBusiness.GetCandidateInfo(name));
         }
 
         [HttpPost]

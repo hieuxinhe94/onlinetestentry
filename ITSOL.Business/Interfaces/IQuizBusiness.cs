@@ -19,5 +19,7 @@ namespace ITSOL.Business.Interfaces
         int InsertOrUpdateAnwerOfQuestion(Answer answer);
         int DeleteQuestionOfQuiz(int id);
         int DeleteAnswerOfQuestion(int id);
+
+        int SubmitQuizByTheCandidate(Quiz quiz, Candidate candidate, int quizAssignedId);
     }
 }

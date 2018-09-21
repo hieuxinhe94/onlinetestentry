@@ -1,6 +1,7 @@
 ﻿
 
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TSOL.Domain.Entities
 {
@@ -15,5 +16,8 @@ namespace TSOL.Domain.Entities
         public virtual ICollection<Answer> Answers { get; set; }
 
         public bool IsMultiSelection { get; set; } = false;
+
+        [NotMapped]
+        public bool HasAnswered { get; set; } = false;
     }
 }

@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using ITSOL.Business.Interfaces;
 using ITSOL.DAL.Repository.RepositoryDomain;
+using TSOL.DAL.Repository.RepositoryDomain;
 using TSOL.Domain.Entities;
 
 namespace ITSOL.Business.Implemented
@@ -12,12 +14,16 @@ namespace ITSOL.Business.Implemented
         private IQuizRepository quizRepository;
         private IQuestionRepository questionRepository;
         private IAnswerRepository answerRepository;
+        private ICandidateQuizAssignResultRepository candidateQuizAssignResultRepository;
+        private ICandidateQuizAssignRepository candidateQuizAssignRepository;
 
-        public QuizBusiness(IQuizRepository _quizRepository, IQuestionRepository _questionRepository, IAnswerRepository _answerRepository)
+        public QuizBusiness(IQuizRepository _quizRepository, IQuestionRepository _questionRepository, IAnswerRepository _answerRepository, ICandidateQuizAssignResultRepository _candidateQuizAssignResultRepository, ICandidateQuizAssignRepository _candidateQuizAssignRepository)
         {
             this.quizRepository = _quizRepository;
             this.questionRepository = _questionRepository;
             this.answerRepository = _answerRepository;
+            this.candidateQuizAssignResultRepository = _candidateQuizAssignResultRepository;
+            this.candidateQuizAssignRepository = _candidateQuizAssignRepository;
         }
 
         public int Create(Quiz quiz)
@@ -101,5 +107,83 @@ namespace ITSOL.Business.Implemented
                 return 0;
             
         }
+
+        public int SubmitQuizByTheCandidate(Quiz quiz, Candidate candidate, int quizAssignedId)
+        {
+            var newestQuizAssigned = candidateQuizAssignRepository
+              .FindWithCondition(t => t.CandidateId == candidate.Id && t.QuizId == quiz.Id).OrderByDescending(t => t.Id).FirstOrDefault();
+
+            if (quiz != null && candidate != null && newestQuizAssigned != null) 
+            {
+
+                 // calculate total answer question
+                int totalAnswered = CalculateQuestionsAnswered(quiz);
+
+                // calculate mark
+                float rightAnswer = CalculateRightQuestion(quiz);
+
+                // total question 
+                int totalQuestion = CalculateTotalQuestions(quiz);
+
+                float mark = rightAnswer * 100 / (float) totalQuestion;
+
+                var newResult = new CandidateQuizAssignAndResult
+                {
+                    Id = 0,
+                    Mark = mark,
+                    DateSubmited = DateTime.Now,
+                    CandidateQuizAssignId = newestQuizAssigned.Id,
+                    // lam tron diem
+                    RightQuestionCount = (int)rightAnswer,
+                    AnsweredQuestionCount = totalAnswered,
+                    TotalQuestionCount = totalQuestion,
+                    WorkingTimeMinues = 20,
+
+                };
+
+                candidateQuizAssignResultRepository.Add(newResult);
+                return 1;
+            }
+            return 0;
+        }
+
+        ///
+        ///
+        private int CalculateQuestionsAnswered(Quiz quiz)
+        {
+            return quiz.Questions.Where(t=>t.HasAnswered).Count();
+        }
+
+        private int CalculateTotalQuestions(Quiz quiz)
+        {
+            return quiz.Questions.Count();
+        }
+
+        private float CalculateRightQuestion(Quiz quiz)
+        {
+            float rightInNotMultiSelectQuestion = quiz.Questions.Where(k=>k.IsMultiSelection == false)
+                .SelectMany(t => t.Answers).Where(t => t.HasSelected && t.IsRightAnswer).Count();
+           
+            var tmp = quiz.Questions.Where(k => k.IsMultiSelection == true).ToList();
+            if (tmp!= null)
+            {
+                foreach (var item in tmp)
+                {
+                    int countAllRightAnswers = item.Answers.Where(t => t.IsRightAnswer).Count();
+                    int countAllRightAnswersCandidateSelected = item.Answers.Where(t => t.IsRightAnswer && t.HasSelected).Count();
+                    int countAllWrongAnswersCandidateSelected = item.Answers.Where(t => t.IsRightAnswer == false && t.HasSelected).Count();
+
+                    if (countAllRightAnswers != 0)
+                    {
+                        float markOfThisQuestions = (countAllRightAnswersCandidateSelected - countAllWrongAnswersCandidateSelected) / (float)countAllRightAnswers;
+                        rightInNotMultiSelectQuestion += markOfThisQuestions;
+                    }
+                  
+                }
+            }
+
+            return rightInNotMultiSelectQuestion;
+        }
+
     }
 }

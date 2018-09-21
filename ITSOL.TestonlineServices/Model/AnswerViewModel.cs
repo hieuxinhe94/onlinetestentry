@@ -9,5 +9,6 @@ namespace ITSOL.TestonlineServices.Model
         public string Title { get; set; }
         public string Content { get; set; }
         public bool IsRightAnswer { get; set; } = false;
+        public bool HasSelected { get; set; } = false;
     }
 }

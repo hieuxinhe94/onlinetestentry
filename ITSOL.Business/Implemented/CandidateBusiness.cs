@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using ITSOL.Business.Interfaces;
 using ITSOL.DAL.Repository.RepositoryDomain; 
@@ -51,23 +52,28 @@ namespace ITSOL.Business.Implemented
                 .ToList();
         }
 
-        public Candidate GetCandidateInfo(int id)
+        public Candidate GetCandidateInfo(string name)
         {
-            return this._candidateRepository.GetById(id);
+            return this._candidateRepository.FindWithCondition( c=> c.UserName.Equals(name, StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
         }
 
         public CandidateQuizAssignedViewModel GetQuizAssigned(int candidateId)
         {
-           var tmp = this._candidateQuizAssignRepository.FindWithCondition((q) => q.CandidateId == candidateId)?.ToList();
-            return new CandidateQuizAssignedViewModel()
+           var tmp = _candidateQuizAssignRepository.IncludeAll().Where((q) => q.CandidateId == candidateId) ;
+            if (tmp.Any())
             {
-                Id = tmp.FirstOrDefault().Id,
-                Candidate = tmp.FirstOrDefault().Candidate,
-                Quizes = tmp.Select(t => t.Quiz).ToList(),
-                DateStart = tmp.FirstOrDefault().DateStart,
-                DateExprire = tmp.FirstOrDefault().DateExprire,
-                CandidateId = tmp.FirstOrDefault().CandidateId
-            };
+                return new CandidateQuizAssignedViewModel()
+                {
+                    Id = tmp.FirstOrDefault().Id,
+                    Candidate = tmp.FirstOrDefault().Candidate,
+                    Quizes = tmp.Select(t => t.Quiz)?.ToList(),
+                    DateStart = tmp.FirstOrDefault().DateStart,
+                    DateExprire = tmp.FirstOrDefault().DateExprire,
+                    CandidateId = tmp.FirstOrDefault().CandidateId
+                };
+            }
+            return null;
+          
         }
 
         public int RegisterNewOrUpdateCandidate(Candidate candidate, string subject)
@@ -75,6 +81,24 @@ namespace ITSOL.Business.Implemented
             if (candidate != null && candidate.Id == 0)
             {
                 this._candidateRepository.Add(candidate);
+
+                // iq and gmat also is default
+                this._candidateQuizAssignRepository.Add(new CandidateQuizAssign
+                {
+                    CandidateId = candidate.Id,
+                    QuizId =
+                    _quizBusiness.GetQuizByName("iq").Id,
+                    Status = true,
+                });
+
+                // iq and gmat also is default
+                this._candidateQuizAssignRepository.Add(new CandidateQuizAssign
+                {
+                    CandidateId = candidate.Id,
+                    QuizId =
+                    _quizBusiness.GetQuizByName("gmat").Id,
+                    Status = true,
+                });
 
                 // also add quiz assign subject
                 this._candidateQuizAssignRepository.Add(new CandidateQuizAssign { CandidateId = candidate.Id, QuizId =

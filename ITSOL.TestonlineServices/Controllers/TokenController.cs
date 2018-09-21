@@ -23,7 +23,7 @@ namespace ITSOL.TestonlineServices.Controllers
     public class TokenController : ControllerBase
     {
         private Microsoft.Extensions.Configuration.IConfiguration config;
-        private IUserBusiness userBusiness;
+        private IUserBusiness userBusiness; 
         private ICandidateBusiness candidateBusiness;
         private readonly IMapper mapper;
 
@@ -45,29 +45,37 @@ namespace ITSOL.TestonlineServices.Controllers
                 return BadRequest(ModelState.Values.ToArray());
             }
             IActionResult respon = Unauthorized();
-            var isValid = userBusiness.Authenticate(viewModel.Name, viewModel.Password);
-            if (isValid)
+    
+
+            if (userBusiness.Authenticate(viewModel.Name, viewModel.Password))
             {
                 var thisUser = userBusiness.GetUser(viewModel.Name);
                 var viewModelFromEntity = mapper.Map<User>(thisUser);
-                var defaultRoles = "GUESS"; // SET your user role here!
-                var tokenStr = BuildToken(viewModelFromEntity, defaultRoles);
-                respon = Ok(new { token = tokenStr, message = "another message" });
-               // respon = Ok(tokenStr);
+                var defaultRoles = "EMP"; // SET your user role here!
+                var tokenStr = BuildToken(thisUser.Name, defaultRoles);
+                respon = Ok(new { token = tokenStr, message = "another message", role = "Employee" });
+                // respon = Ok(tokenStr);
+            }
+            else if (candidateBusiness.Authenticate(viewModel.Name, viewModel.Password))
+            {
+                var thisCandidate = candidateBusiness.GetCandidateInfo(viewModel.Name);
+                var defaultRoles = "CANDIDATE"; // SET your user role here!
+                var tokenStr = BuildToken(thisCandidate.UserName, defaultRoles);
+                respon = Ok(new { token = tokenStr, message = "another message", role = "Candidate" });
             }
             return respon;
         }
 
-        private string BuildToken(User myUser, string Roles)
+        private string BuildToken(string name, string Roles)
         {
 
             IdentityOptions _options = new IdentityOptions();
             var claims = new[] {
-                new Claim(JwtRegisteredClaimNames.Sub, myUser.Name ),
+                new Claim(JwtRegisteredClaimNames.Sub, name ),
                 // new Claim(JwtRegisteredClaimNames.Email, myUser.Email),
                
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(_options.ClaimsIdentity.UserNameClaimType, myUser.Name),
+                new Claim(_options.ClaimsIdentity.UserNameClaimType, name),
                 new Claim(ClaimTypes.Role, Roles)
               };
 

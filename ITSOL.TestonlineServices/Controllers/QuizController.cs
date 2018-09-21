@@ -90,5 +90,18 @@ namespace ITSOL.TestonlineServices.Controllers
             return Ok(this.quizBusiness.DeleteAnswerOfQuestion(id));
         }
 
+        /// Candidate quiz api handler:
+        /// 
+
+        [HttpPost]
+        [Route("submitQuizByCandidate")]
+        public IActionResult SubmitQuizByCandidate([FromBody] CandidateQuizResultViewModel viewModel)
+        {
+            return Ok(this.quizBusiness.SubmitQuizByTheCandidate( 
+                mapper.Map<Quiz>(viewModel.Quiz),
+                mapper.Map<Candidate>(viewModel.Candidate) ,
+                viewModel.CandidateQuizAssignId));
+        }
+
     }
 }
