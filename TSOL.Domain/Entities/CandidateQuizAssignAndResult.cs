@@ -9,7 +9,6 @@ namespace TSOL.Domain.Entities
         public int CandidateQuizAssignId { get; set; }
         public virtual CandidateQuizAssign CandidateQuizAssign { get; set; }
 
-
         public DateTime DateSubmited { get; set; }
 
         public int AnsweredQuestionCount { get; set; }

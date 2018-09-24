@@ -27,5 +27,26 @@ namespace ITSOL.TestonlineServices.Controllers
         {
             return Ok();
         }
+
+        [HttpGet]
+        [Route("GetAllQuizAssigned")]
+        public IActionResult GetAllQuizAssigned()
+        {
+            return Ok(summaryBusiness.GetAllQuizAssigned());
+        }
+
+        [HttpGet]
+        [Route("GetAllQuizAssignedResult")]
+        public IActionResult GetAllQuizAssignedResult()
+        {
+            return Ok(summaryBusiness.GetAllQuizAssignedResult());
+        }
+
+        [HttpGet]
+        [Route("GetAllQuizAssignedResultByCandidateName")]
+        public IActionResult GetAllQuizAssignedResultByCandidateName(string candidateName)
+        {
+            return Ok(summaryBusiness.GetQuizResultByCandidateName(candidateName));
+        }
     }
 }

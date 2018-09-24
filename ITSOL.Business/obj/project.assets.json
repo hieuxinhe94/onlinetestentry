@@ -53,7 +53,7 @@
   },
   "libraries": {
     "Microsoft.NETCore.Platforms/1.1.0": {
-      "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "sha512": "OZfNnyl0wfizjh2clNbHsQdkg9IxCsnrEzcT8OnMnBbqq2aUEsHhPafyDZSrEP7/uSjs2eePRBYtfbuN+gIvkg==",
       "type": "package",
       "path": "microsoft.netcore.platforms/1.1.0",
       "files": [
@@ -211,23 +211,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\DELL\\.nuget\\packages\\": {},
+    "C:\\Users\\Hieu Lenovo Laptop\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\ITSOL.TestonlineServices\\ITSOL.Business\\ITSOL.Business.csproj",
+      "projectUniqueName": "E:\\ITSOL\\testonilineservices\\ITSOL.Business\\ITSOL.Business.csproj",
       "projectName": "ITSOL.Business",
-      "projectPath": "D:\\Projects\\ITSOL.TestonlineServices\\ITSOL.Business\\ITSOL.Business.csproj",
-      "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\ITSOL.TestonlineServices\\ITSOL.Business\\obj\\",
+      "projectPath": "E:\\ITSOL\\testonilineservices\\ITSOL.Business\\ITSOL.Business.csproj",
+      "packagesPath": "C:\\Users\\Hieu Lenovo Laptop\\.nuget\\packages\\",
+      "outputPath": "E:\\ITSOL\\testonilineservices\\ITSOL.Business\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Hieu Lenovo Laptop\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -240,11 +240,11 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "D:\\Projects\\ITSOL.TestonlineServices\\TSOL.DAL\\ITSOL.DAL.csproj": {
-              "projectPath": "D:\\Projects\\ITSOL.TestonlineServices\\TSOL.DAL\\ITSOL.DAL.csproj"
+            "E:\\ITSOL\\testonilineservices\\TSOL.DAL\\ITSOL.DAL.csproj": {
+              "projectPath": "E:\\ITSOL\\testonilineservices\\TSOL.DAL\\ITSOL.DAL.csproj"
             },
-            "D:\\Projects\\ITSOL.TestonlineServices\\TSOL.Domain\\ITSOL.Domain.csproj": {
-              "projectPath": "D:\\Projects\\ITSOL.TestonlineServices\\TSOL.Domain\\ITSOL.Domain.csproj"
+            "E:\\ITSOL\\testonilineservices\\TSOL.Domain\\ITSOL.Domain.csproj": {
+              "projectPath": "E:\\ITSOL\\testonilineservices\\TSOL.Domain\\ITSOL.Domain.csproj"
             }
           }
         }
