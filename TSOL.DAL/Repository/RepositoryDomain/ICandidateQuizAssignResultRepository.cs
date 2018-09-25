@@ -22,7 +22,7 @@ namespace TSOL.DAL.Repository.RepositoryDomain
 
         public async Task<ICollection<CandidateQuizAssignAndResult>> GetFull()
         {
-            return await _context.Set<CandidateQuizAssignAndResult>().Include(t => t.CandidateQuizAssign).ToListAsync();
+            return await _context.Set<CandidateQuizAssignAndResult>().Include(t => t.CandidateQuizAssign).ThenInclude(k=> k.Candidate).Include(k => k.CandidateQuizAssign.Quiz).ToListAsync();
         }
         public async Task<ICollection<CandidateQuizAssignAndResult>> GetFullByCandidateName(string candidateName)
         {

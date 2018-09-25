@@ -2,7 +2,9 @@
 using AutoMapper;
 using ITSOL.Business.Interfaces;
 using ITSOL.TestonlineServices.Configuraions;
+using ITSOL.TestonlineServices.Model;
 using Microsoft.AspNetCore.Mvc;
+using TSOL.Domain.Entities;
 
 namespace ITSOL.TestonlineServices.Controllers
 {
@@ -24,14 +26,26 @@ namespace ITSOL.TestonlineServices.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            return Ok();
+            return Ok(applicationConfigBusiness.GetAll());
         }
-
+        
         [HttpGet]
         [Route("GetByKey")]
         public IActionResult GetByKey(string key)
         {
-            return Ok();
+            return Ok(applicationConfigBusiness.getByKey(key));
+        }
+
+        [HttpPost]
+        [Route("InsertOrUpdate")]
+        public IActionResult InsertOrUpdate([FromBody] ApplicationConfigViewModel viewmodel)
+        {
+            if (ModelState.IsValid)
+            {
+                return Ok(applicationConfigBusiness.InsertOrUpdate(mapper.Map<ApplicationConfig>(viewmodel)));
+            }
+            return BadRequest();
         }
     }
+
 }

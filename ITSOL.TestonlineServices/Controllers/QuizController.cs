@@ -100,7 +100,7 @@ namespace ITSOL.TestonlineServices.Controllers
             return Ok(this.quizBusiness.SubmitQuizByTheCandidate( 
                 mapper.Map<Quiz>(viewModel.Quiz),
                 mapper.Map<Candidate>(viewModel.Candidate) ,
-                viewModel.CandidateQuizAssignId));
+                viewModel.CandidateQuizAssignId, viewModel.WorkingTimeMinues));
         }
 
     }

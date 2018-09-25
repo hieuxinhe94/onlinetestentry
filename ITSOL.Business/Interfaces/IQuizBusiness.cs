@@ -20,6 +20,6 @@ namespace ITSOL.Business.Interfaces
         int DeleteQuestionOfQuiz(int id);
         int DeleteAnswerOfQuestion(int id);
 
-        int SubmitQuizByTheCandidate(Quiz quiz, Candidate candidate, int quizAssignedId);
+        int SubmitQuizByTheCandidate(Quiz quiz, Candidate candidate, int quizAssignedId, float workingTimeMinues);
     }
 }

@@ -108,7 +108,7 @@ namespace ITSOL.Business.Implemented
             
         }
 
-        public int SubmitQuizByTheCandidate(Quiz quiz, Candidate candidate, int quizAssignedId)
+        public int SubmitQuizByTheCandidate(Quiz quiz, Candidate candidate, int quizAssignedId, float workingTimeMinues)
         {
             var newestQuizAssigned = candidateQuizAssignRepository
               .FindWithCondition(t => t.CandidateId == candidate.Id && t.QuizId == quiz.Id).OrderByDescending(t => t.Id).FirstOrDefault();
@@ -137,7 +137,7 @@ namespace ITSOL.Business.Implemented
                     RightQuestionCount = (int)rightAnswer,
                     AnsweredQuestionCount = totalAnswered,
                     TotalQuestionCount = totalQuestion,
-                    WorkingTimeMinues = 20,
+                    WorkingTimeMinues = workingTimeMinues,
 
                 };
 

@@ -5,7 +5,8 @@ namespace ITSOL.Business.Interfaces
 {
    public interface IApplicationConfigBusiness
     {
- 
-
+        ICollection<ApplicationConfig> GetAll();
+        ApplicationConfig getByKey(string key);
+        int InsertOrUpdate(ApplicationConfig entity); 
     }
 }

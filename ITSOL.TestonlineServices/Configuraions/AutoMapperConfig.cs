@@ -19,6 +19,7 @@ namespace ITSOL.TestonlineServices.Configuraions
             CreateMap<QuizViewModel, Quiz>();
             CreateMap<QuestionViewModel, Question>();
             CreateMap<AnswerViewModel, Answer>();
+            CreateMap<ApplicationConfigViewModel, ApplicationConfig>();
         }
 
     }

@@ -29,7 +29,7 @@ namespace ITSOL.TestonlineServices.Configuraions
             services.AddScoped<ICandidateQuizAssignRepository, CandidateQuizAssignRepository>();
             services.AddScoped<ICandidateQuizAssignResultRepository, CandidateQuizAssignResultRepository>();
             services.AddScoped<ICandidateQuizAssignResultDetailRepository, CandidateQuizAssignResultDetailRepository>();
-
+            services.AddScoped<IApplicationConfigRepository, ApplicationConfigRepository>();
 
             services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
             // Dependency injection
