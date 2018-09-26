@@ -18,6 +18,6 @@ namespace TSOL.Domain.Entities
         public bool IsMultiSelection { get; set; } = false;
 
         [NotMapped]
-        public bool HasAnswered { get; set; } = false;
+        public bool IsAnswered { get; set; } = false;
     }
 }

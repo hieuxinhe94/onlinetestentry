@@ -91,6 +91,15 @@ namespace ITSOL.Business.Implemented
                     Status = true,
                 });
 
+                // english also is default
+                this._candidateQuizAssignRepository.Add(new CandidateQuizAssign
+                {
+                    CandidateId = candidate.Id,
+                    QuizId =
+                    _quizBusiness.GetQuizByName("english").Id,
+                    Status = true,
+                });
+
                 // iq and gmat also is default
                 this._candidateQuizAssignRepository.Add(new CandidateQuizAssign
                 {

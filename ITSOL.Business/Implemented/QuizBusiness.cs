@@ -151,7 +151,7 @@ namespace ITSOL.Business.Implemented
         ///
         private int CalculateQuestionsAnswered(Quiz quiz)
         {
-            return quiz.Questions.Where(t=>t.HasAnswered).Count();
+            return quiz.Questions.Count(t=>t.IsAnswered);
         }
 
         private int CalculateTotalQuestions(Quiz quiz)

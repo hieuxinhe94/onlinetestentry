@@ -91,8 +91,7 @@ namespace ITSOL.TestonlineServices.Controllers
         }
 
         /// Candidate quiz api handler:
-        /// 
-
+        
         [HttpPost]
         [Route("submitQuizByCandidate")]
         public IActionResult SubmitQuizByCandidate([FromBody] CandidateQuizResultViewModel viewModel)

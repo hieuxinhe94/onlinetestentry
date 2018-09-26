@@ -29,9 +29,13 @@ namespace TSOL.DAL
             new User { Id = 2, Name = "emp2", Email = "emp2@email.com", Password = "123" });
 
             modelBuilder.Entity<Quiz>().HasData(
-            new Quiz { Id = 1, Name = "java", Title = "Java Quiz", Description = "This is java quiz", TimeUpMinutes = 20 },
-            new Quiz { Id = 2, Name = "english", Title = "English Quiz", Description = "This is english quiz", TimeUpMinutes = 20 });
+            new Quiz { Id = 1, Name = "iq", Title = "IQ Quiz", Description = "This is IQ quiz", TimeUpMinutes = 20 },
+            new Quiz { Id = 2, Name = "java", Title = "Java Quiz", Description = "This is java quiz", TimeUpMinutes = 20 },
+            new Quiz { Id = 3, Name = "english", Title = "English Quiz", Description = "This is english quiz", TimeUpMinutes = 20 },
+            new Quiz { Id = 4, Name = "gmat", Title = "Gmat Quiz", Description = "This is english Gmat", TimeUpMinutes = 20 }
+            );
 
+            
             base.OnModelCreating(modelBuilder);
         }
     }
