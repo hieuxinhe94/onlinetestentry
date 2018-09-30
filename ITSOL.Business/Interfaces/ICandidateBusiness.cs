@@ -6,7 +6,7 @@ namespace ITSOL.Business.Interfaces
    public interface ICandidateBusiness
     {
         bool Authenticate(string name, string password);
-        int RegisterNewOrUpdateCandidate(Candidate candidate, string subject);
+        int RegisterNewOrUpdateCandidate(Candidate candidate, string []subject);
         int RemoveCandidate(int id);
         Candidate GetCandidateInfo(string name);
         ICollection<Candidate> GetAll();

@@ -5,7 +5,7 @@ namespace ITSOL.TestonlineServices.Model
     public class CandidateViewModel
     {
         public int Id { get; set; }
-        public string SubjectNames { get; set; }
+        public string [] SubjectNames { get; set; }
 
         public string UserName { get; set; }
         public string Password { get; set; }

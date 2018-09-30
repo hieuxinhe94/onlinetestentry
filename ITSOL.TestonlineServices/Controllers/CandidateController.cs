@@ -52,9 +52,9 @@ namespace ITSOL.TestonlineServices.Controllers
             return BadRequest();
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("Delete")]
-        public IActionResult Delete(int id)
+        public IActionResult Delete( [FromBody] int id)
         {
             return Ok(candidateBusiness.RemoveCandidate(id));
         }

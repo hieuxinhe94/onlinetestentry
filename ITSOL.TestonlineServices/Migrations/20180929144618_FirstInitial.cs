@@ -131,13 +131,13 @@ namespace ITSOL.TestonlineServices.Migrations
                         column: x => x.CandidateId,
                         principalTable: "Candidate",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_CandidateQuizAssign_Quiz_QuizId",
                         column: x => x.QuizId,
                         principalTable: "Quiz",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -159,7 +159,7 @@ namespace ITSOL.TestonlineServices.Migrations
                         column: x => x.QuizId,
                         principalTable: "Quiz",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -185,7 +185,7 @@ namespace ITSOL.TestonlineServices.Migrations
                         column: x => x.CandidateQuizAssignId,
                         principalTable: "CandidateQuizAssign",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -207,7 +207,7 @@ namespace ITSOL.TestonlineServices.Migrations
                         column: x => x.QuestionId,
                         principalTable: "Question",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -242,8 +242,11 @@ namespace ITSOL.TestonlineServices.Migrations
                 columns: new[] { "Id", "DateCreated", "DateModified", "Description", "Name", "Status", "TimeUpMinutes", "Title" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "This is java quiz", "java", true, 20f, "Java Quiz" },
-                    { 2, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "This is english quiz", "english", true, 20f, "English Quiz" }
+                    { 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "This is IQ quiz ", "iq_01", true, 20f, "IQ Quiz 01" },
+                    { 2, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "This is java quiz", "java_01", true, 20f, "Java Quiz 01" },
+                    { 3, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "This is .Net quiz", "net_01", true, 20f, "NET Quiz 01" },
+                    { 4, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "This is english quiz", "english_01", true, 20f, "English Quiz 01" },
+                    { 5, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "This is english Gmat", "gmat_01", true, 10f, "Gmat Quiz 01" }
                 });
 
             migrationBuilder.InsertData(

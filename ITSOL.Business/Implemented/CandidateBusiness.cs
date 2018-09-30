@@ -35,13 +35,13 @@ namespace ITSOL.Business.Implemented
 
         public bool Authenticate(string name, string password)
             => 
-            this._candidateRepository.FindWithCondition(item => item.UserName == name.ToLower() && item.Password == password.ToLower()).Any() ;
+            this._candidateRepository.FindWithCondition(item => item.Status == true && item.UserName == name.ToLower() && item.Password == password.ToLower()).Any() ;
                         
         
 
         public ICollection<Candidate> GetAll()
         {
-            return this._candidateRepository.GetAll().ToList();
+            return this._candidateRepository.GetAll().Where(t=> t.Status).ToList();
         }
 
         public ICollection<Candidate> GetAll(int page_size, int page_num, int page_index, string key_word)
@@ -54,7 +54,7 @@ namespace ITSOL.Business.Implemented
 
         public Candidate GetCandidateInfo(string name)
         {
-            return this._candidateRepository.FindWithCondition( c=> c.UserName.Equals(name, StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
+            return this._candidateRepository.FindWithCondition( c=> c.Status &&  c.UserName.Equals(name, StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
         }
 
         public CandidateQuizAssignedViewModel GetQuizAssigned(int candidateId)
@@ -76,44 +76,23 @@ namespace ITSOL.Business.Implemented
           
         }
 
-        public int RegisterNewOrUpdateCandidate(Candidate candidate, string subject)
+        public int RegisterNewOrUpdateCandidate(Candidate candidate, string [] subjects)
         {
             if (candidate != null && candidate.Id == 0)
             {
                 this._candidateRepository.Add(candidate);
-
-                // iq and gmat also is default
-                this._candidateQuizAssignRepository.Add(new CandidateQuizAssign
+               
+                foreach (var item in subjects)
                 {
-                    CandidateId = candidate.Id,
-                    QuizId =
-                    _quizBusiness.GetQuizByName("iq").Id,
-                    Status = true,
-                });
-
-                // english also is default
-                this._candidateQuizAssignRepository.Add(new CandidateQuizAssign
-                {
-                    CandidateId = candidate.Id,
-                    QuizId =
-                    _quizBusiness.GetQuizByName("english").Id,
-                    Status = true,
-                });
-
-                // iq and gmat also is default
-                this._candidateQuizAssignRepository.Add(new CandidateQuizAssign
-                {
-                    CandidateId = candidate.Id,
-                    QuizId =
-                    _quizBusiness.GetQuizByName("gmat").Id,
-                    Status = true,
-                });
-
-                // also add quiz assign subject
-                this._candidateQuizAssignRepository.Add(new CandidateQuizAssign { CandidateId = candidate.Id, QuizId =
-                       _quizBusiness.GetQuizByName(subject.ToLower()).Id,
-                       Status = true,
-                });
+                    this._candidateQuizAssignRepository.Add(new CandidateQuizAssign
+                    {
+                        CandidateId = candidate.Id,
+                        QuizId =
+                        _quizBusiness.GetQuizByName(item.ToLower()).Id,
+                        Status = true,
+                    });
+                }
+             
                 return 1;
             }
             else if (candidate != null && candidate.Id != 0)
@@ -127,7 +106,12 @@ namespace ITSOL.Business.Implemented
         {
             if (id > 0)
             {
-                return this._candidateRepository.Delete(id);
+                var currentCandidate = _candidateRepository.GetById(id);
+                if (currentCandidate != null)
+                {
+                    currentCandidate.Status = false;
+                    return this._candidateRepository.Update(currentCandidate);
+                }
             }
             return 0;
         }

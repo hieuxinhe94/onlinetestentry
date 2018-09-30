@@ -3,7 +3,6 @@ E:\ITSOL\testonilineservices\TSOL.Domain\bin\Debug\netstandard2.0\ITSOL.Domain.d
 E:\ITSOL\testonilineservices\TSOL.Domain\bin\Debug\netstandard2.0\ITSOL.Domain.pdb
 E:\ITSOL\testonilineservices\TSOL.Domain\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.dll
 E:\ITSOL\testonilineservices\TSOL.Domain\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.xml
-E:\ITSOL\testonilineservices\TSOL.Domain\obj\Debug\netstandard2.0\ITSOL.Domain.csprojResolveAssemblyReference.cache
 E:\ITSOL\testonilineservices\TSOL.Domain\obj\Debug\netstandard2.0\ITSOL.Domain.csproj.CoreCompileInputs.cache
 E:\ITSOL\testonilineservices\TSOL.Domain\obj\Debug\netstandard2.0\ITSOL.Domain.AssemblyInfoInputs.cache
 E:\ITSOL\testonilineservices\TSOL.Domain\obj\Debug\netstandard2.0\ITSOL.Domain.AssemblyInfo.cs
@@ -22,3 +21,4 @@ D:\Projects\ITSOL.TestonlineServices\TSOL.Domain\obj\Debug\netstandard2.0\ITSOL.
 D:\Projects\ITSOL.TestonlineServices\TSOL.Domain\obj\Debug\netstandard2.0\ITSOL.Domain.csproj.CopyComplete
 D:\Projects\ITSOL.TestonlineServices\TSOL.Domain\obj\Debug\netstandard2.0\ITSOL.Domain.dll
 D:\Projects\ITSOL.TestonlineServices\TSOL.Domain\obj\Debug\netstandard2.0\ITSOL.Domain.pdb
+E:\ITSOL\testonilineservices\TSOL.Domain\obj\Debug\netstandard2.0\ITSOL.Domain.csprojResolveAssemblyReference.cache

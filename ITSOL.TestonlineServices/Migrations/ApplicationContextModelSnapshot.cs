@@ -241,8 +241,11 @@ namespace ITSOL.TestonlineServices.Migrations
                     b.ToTable("Quiz");
 
                     b.HasData(
-                        new { Id = 1, DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Description = "This is java quiz", Name = "java", Status = true, TimeUpMinutes = 20f, Title = "Java Quiz" },
-                        new { Id = 2, DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Description = "This is english quiz", Name = "english", Status = true, TimeUpMinutes = 20f, Title = "English Quiz" }
+                        new { Id = 1, DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Description = "This is IQ quiz ", Name = "iq_01", Status = true, TimeUpMinutes = 20f, Title = "IQ Quiz 01" },
+                        new { Id = 2, DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Description = "This is java quiz", Name = "java_01", Status = true, TimeUpMinutes = 20f, Title = "Java Quiz 01" },
+                        new { Id = 3, DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Description = "This is .Net quiz", Name = "net_01", Status = true, TimeUpMinutes = 20f, Title = "NET Quiz 01" },
+                        new { Id = 4, DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Description = "This is english quiz", Name = "english_01", Status = true, TimeUpMinutes = 20f, Title = "English Quiz 01" },
+                        new { Id = 5, DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Description = "This is english Gmat", Name = "gmat_01", Status = true, TimeUpMinutes = 10f, Title = "Gmat Quiz 01" }
                     );
                 });
 
