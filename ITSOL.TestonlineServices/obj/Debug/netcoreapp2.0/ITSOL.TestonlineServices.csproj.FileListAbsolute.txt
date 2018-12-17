@@ -1,4 +1,0 @@
-E:\ITSOL\testonilineservices\ITSOL.TestonlineServices\obj\Debug\netcoreapp2.0\ITSOL.TestonlineServices.csprojResolveAssemblyReference.cache
-E:\ITSOL\testonilineservices\ITSOL.TestonlineServices\obj\Debug\netcoreapp2.0\ITSOL.TestonlineServices.csproj.CoreCompileInputs.cache
-E:\ITSOL\testonilineservices\ITSOL.TestonlineServices\obj\Debug\netcoreapp2.0\ITSOL.TestonlineServices.AssemblyInfoInputs.cache
-E:\ITSOL\testonilineservices\ITSOL.TestonlineServices\obj\Debug\netcoreapp2.0\ITSOL.TestonlineServices.AssemblyInfo.cs
