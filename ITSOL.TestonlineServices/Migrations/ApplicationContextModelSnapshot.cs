@@ -15,7 +15,7 @@ namespace ITSOL.TestonlineServices.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.3-rtm-32065")
+                .HasAnnotation("ProductVersion", "2.1.4-rtm-31024")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -53,6 +53,17 @@ namespace ITSOL.TestonlineServices.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ApplicationConfig");
+
+                    b.HasData(
+                        new { Id = 1, Key = "APP_NAME", Val = "ITSOL ONLINE TEST ENTRY" },
+                        new { Id = 2, Key = "VERSION", Val = "V00.01" },
+                        new { Id = 3, Key = "GETTING_STARTED_MENU", Val = "Getting started" },
+                        new { Id = 4, Key = "ABOUT_COMPANY", Val = "<b>Html</b>" },
+                        new { Id = 5, Key = "CONTACTS", Val = "<b>Html</b>" },
+                        new { Id = 6, Key = "GETTING_STARTED_MENU_STEP_1", Val = "<b>Html</b>" },
+                        new { Id = 7, Key = "GETTING_STARTED_MENU_STEP_2", Val = "<b>Html</b>" },
+                        new { Id = 8, Key = "GETTING_STARTED_MENU_STEP_3", Val = "<b>Html</b>" }
+                    );
                 });
 
             modelBuilder.Entity("TSOL.Domain.Entities.Candidate", b =>
@@ -241,11 +252,11 @@ namespace ITSOL.TestonlineServices.Migrations
                     b.ToTable("Quiz");
 
                     b.HasData(
-                        new { Id = 1, DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Description = "This is IQ quiz ", Name = "iq_01", Status = true, TimeUpMinutes = 20f, Title = "IQ Quiz 01" },
-                        new { Id = 2, DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Description = "This is java quiz", Name = "java_01", Status = true, TimeUpMinutes = 20f, Title = "Java Quiz 01" },
-                        new { Id = 3, DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Description = "This is .Net quiz", Name = "net_01", Status = true, TimeUpMinutes = 20f, Title = "NET Quiz 01" },
-                        new { Id = 4, DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Description = "This is english quiz", Name = "english_01", Status = true, TimeUpMinutes = 20f, Title = "English Quiz 01" },
-                        new { Id = 5, DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Description = "This is english Gmat", Name = "gmat_01", Status = true, TimeUpMinutes = 10f, Title = "Gmat Quiz 01" }
+                        new { Id = 1, DateCreated = new DateTime(2018, 12, 17, 22, 17, 25, 445, DateTimeKind.Local), DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Description = "This is IQ quiz ", Name = "iq_01", Status = true, TimeUpMinutes = 20f, Title = "IQ Quiz 01" },
+                        new { Id = 2, DateCreated = new DateTime(2018, 12, 17, 22, 17, 25, 445, DateTimeKind.Local), DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Description = "This is java quiz", Name = "java_01", Status = true, TimeUpMinutes = 20f, Title = "Java Quiz 01" },
+                        new { Id = 3, DateCreated = new DateTime(2018, 12, 17, 22, 17, 25, 445, DateTimeKind.Local), DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Description = "This is .Net quiz", Name = "net_01", Status = true, TimeUpMinutes = 20f, Title = "NET Quiz 01" },
+                        new { Id = 4, DateCreated = new DateTime(2018, 12, 17, 22, 17, 25, 445, DateTimeKind.Local), DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Description = "This is english quiz", Name = "english_01", Status = true, TimeUpMinutes = 20f, Title = "English Quiz 01" },
+                        new { Id = 5, DateCreated = new DateTime(2018, 12, 17, 22, 17, 25, 445, DateTimeKind.Local), DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Description = "This is english Gmat", Name = "gmat_01", Status = true, TimeUpMinutes = 10f, Title = "Gmat Quiz 01" }
                     );
                 });
 
@@ -255,11 +266,11 @@ namespace ITSOL.TestonlineServices.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("CreatedDate");
+                    b.Property<DateTime?>("CreatedDate");
 
                     b.Property<string>("Email");
 
-                    b.Property<DateTime>("LastActivateDate");
+                    b.Property<DateTime?>("LastActivateDate");
 
                     b.Property<string>("Name");
 
@@ -272,8 +283,8 @@ namespace ITSOL.TestonlineServices.Migrations
                     b.ToTable("User");
 
                     b.HasData(
-                        new { Id = 1, CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Email = "emp1@email.com", LastActivateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Name = "emp1", Password = "123", Status = 1 },
-                        new { Id = 2, CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Email = "emp2@email.com", LastActivateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Name = "emp2", Password = "123", Status = 1 }
+                        new { Id = 1, CreatedDate = new DateTime(2018, 12, 17, 22, 17, 25, 442, DateTimeKind.Local), Email = "emp1@email.com", Name = "emp1", Password = "123", Status = 1 },
+                        new { Id = 2, CreatedDate = new DateTime(2018, 12, 17, 22, 17, 25, 444, DateTimeKind.Local), Email = "emp2@email.com", Name = "emp2", Password = "123", Status = 1 }
                     );
                 });
 

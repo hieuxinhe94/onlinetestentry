@@ -30,3 +30,15 @@ D:\Projects\ITSOL.TestonlineServices\TSOL.DAL\obj\Debug\netstandard2.0\ITSOL.DAL
 D:\Projects\ITSOL.TestonlineServices\TSOL.DAL\obj\Debug\netstandard2.0\ITSOL.DAL.csproj.CopyComplete
 D:\Projects\ITSOL.TestonlineServices\TSOL.DAL\obj\Debug\netstandard2.0\ITSOL.DAL.dll
 D:\Projects\ITSOL.TestonlineServices\TSOL.DAL\obj\Debug\netstandard2.0\ITSOL.DAL.pdb
+E:\ITSOL\testoniline-services\TSOL.DAL\bin\Debug\netstandard2.0\ITSOL.DAL.deps.json
+E:\ITSOL\testoniline-services\TSOL.DAL\bin\Debug\netstandard2.0\ITSOL.DAL.dll
+E:\ITSOL\testoniline-services\TSOL.DAL\bin\Debug\netstandard2.0\ITSOL.DAL.pdb
+E:\ITSOL\testoniline-services\TSOL.DAL\bin\Debug\netstandard2.0\ITSOL.Domain.dll
+E:\ITSOL\testoniline-services\TSOL.DAL\bin\Debug\netstandard2.0\ITSOL.Domain.pdb
+E:\ITSOL\testoniline-services\TSOL.DAL\obj\Debug\netstandard2.0\ITSOL.DAL.csprojAssemblyReference.cache
+E:\ITSOL\testoniline-services\TSOL.DAL\obj\Debug\netstandard2.0\ITSOL.DAL.csproj.CoreCompileInputs.cache
+E:\ITSOL\testoniline-services\TSOL.DAL\obj\Debug\netstandard2.0\ITSOL.DAL.AssemblyInfoInputs.cache
+E:\ITSOL\testoniline-services\TSOL.DAL\obj\Debug\netstandard2.0\ITSOL.DAL.AssemblyInfo.cs
+E:\ITSOL\testoniline-services\TSOL.DAL\obj\Debug\netstandard2.0\ITSOL.DAL.csproj.CopyComplete
+E:\ITSOL\testoniline-services\TSOL.DAL\obj\Debug\netstandard2.0\ITSOL.DAL.dll
+E:\ITSOL\testoniline-services\TSOL.DAL\obj\Debug\netstandard2.0\ITSOL.DAL.pdb

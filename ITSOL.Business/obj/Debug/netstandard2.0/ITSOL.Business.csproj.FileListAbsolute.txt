@@ -34,3 +34,17 @@ D:\Projects\ITSOL.TestonlineServices\ITSOL.Business\obj\Debug\netstandard2.0\ITS
 D:\Projects\ITSOL.TestonlineServices\ITSOL.Business\obj\Debug\netstandard2.0\ITSOL.Business.csproj.CopyComplete
 D:\Projects\ITSOL.TestonlineServices\ITSOL.Business\obj\Debug\netstandard2.0\ITSOL.Business.dll
 D:\Projects\ITSOL.TestonlineServices\ITSOL.Business\obj\Debug\netstandard2.0\ITSOL.Business.pdb
+E:\ITSOL\testoniline-services\ITSOL.Business\bin\Debug\netstandard2.0\ITSOL.Business.deps.json
+E:\ITSOL\testoniline-services\ITSOL.Business\bin\Debug\netstandard2.0\ITSOL.Business.dll
+E:\ITSOL\testoniline-services\ITSOL.Business\bin\Debug\netstandard2.0\ITSOL.Business.pdb
+E:\ITSOL\testoniline-services\ITSOL.Business\bin\Debug\netstandard2.0\ITSOL.DAL.dll
+E:\ITSOL\testoniline-services\ITSOL.Business\bin\Debug\netstandard2.0\ITSOL.Domain.dll
+E:\ITSOL\testoniline-services\ITSOL.Business\bin\Debug\netstandard2.0\ITSOL.DAL.pdb
+E:\ITSOL\testoniline-services\ITSOL.Business\bin\Debug\netstandard2.0\ITSOL.Domain.pdb
+E:\ITSOL\testoniline-services\ITSOL.Business\obj\Debug\netstandard2.0\ITSOL.Business.csprojAssemblyReference.cache
+E:\ITSOL\testoniline-services\ITSOL.Business\obj\Debug\netstandard2.0\ITSOL.Business.csproj.CoreCompileInputs.cache
+E:\ITSOL\testoniline-services\ITSOL.Business\obj\Debug\netstandard2.0\ITSOL.Business.AssemblyInfoInputs.cache
+E:\ITSOL\testoniline-services\ITSOL.Business\obj\Debug\netstandard2.0\ITSOL.Business.AssemblyInfo.cs
+E:\ITSOL\testoniline-services\ITSOL.Business\obj\Debug\netstandard2.0\ITSOL.Business.csproj.CopyComplete
+E:\ITSOL\testoniline-services\ITSOL.Business\obj\Debug\netstandard2.0\ITSOL.Business.dll
+E:\ITSOL\testoniline-services\ITSOL.Business\obj\Debug\netstandard2.0\ITSOL.Business.pdb

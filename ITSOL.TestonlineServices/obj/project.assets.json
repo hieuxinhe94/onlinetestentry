@@ -1739,6 +1739,19 @@
           "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Relational.dll": {}
         }
       },
+      "Microsoft.EntityFrameworkCore.Relational.Design/1.1.6": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational": "1.1.6",
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Relational.Design.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Relational.Design.dll": {}
+        }
+      },
       "Microsoft.EntityFrameworkCore.SqlServer/2.1.1": {
         "type": "package",
         "dependencies": {
@@ -1750,6 +1763,20 @@
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.EntityFrameworkCore.SqlServer.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.SqlServer.Design/1.1.6": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational.Design": "1.1.6",
+          "Microsoft.EntityFrameworkCore.SqlServer": "1.1.6",
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.EntityFrameworkCore.SqlServer.Design.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.EntityFrameworkCore.SqlServer.Design.dll": {}
         }
       },
       "Microsoft.EntityFrameworkCore.Tools/2.1.3": {
@@ -4768,7 +4795,9 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "ITSOL.Domain": "1.0.0"
+          "ITSOL.Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore.Relational": "2.1.1",
+          "Microsoft.EntityFrameworkCore.SqlServer.Design": "1.1.6"
         },
         "compile": {
           "bin/placeholder/ITSOL.DAL.dll": {}
@@ -4791,10 +4820,11 @@
   },
   "libraries": {
     "AutoMapper/7.0.1": {
-      "sha512": "6xHbhsW09sWjjYuE1sqhYn25PQzB6UEUVPME5uhlaIz2NR2+L3+FGbVxvknJKug1BLp6VTLxDb5RcGXKMm0ieQ==",
+      "sha512": "1qKMJ1WPs42VkgeQ5iXRDWf46+iUqYM/yColAvAeDQhUgQNsgzSxjMDHQc7dL2x/o0JY8TwG+obR7vbvgh+Y3g==",
       "type": "package",
       "path": "automapper/7.0.1",
       "files": [
+        ".signature.p7s",
         "automapper.7.0.1.nupkg.sha512",
         "automapper.nuspec",
         "lib/net45/AutoMapper.dll",
@@ -4812,10 +4842,11 @@
       ]
     },
     "AutoMapper.Extensions.Microsoft.DependencyInjection/5.0.1": {
-      "sha512": "7MIq6D/ax3964iHXbL1L2ldUvl6IlKp0p1GZFzr6vlIhEVyp4CgJwOpisRLvIO7dP+kDtbY3Hb9yuPNCkfyBFg==",
+      "sha512": "FsPcuVkaAj232P6yrSxnQybBnwawvsg3C65l+BDShGaU9jfANGjMY2evNlQ8RAEezrutpeQT9LFWQJ+sXhaHPw==",
       "type": "package",
       "path": "automapper.extensions.microsoft.dependencyinjection/5.0.1",
       "files": [
+        ".signature.p7s",
         "automapper.extensions.microsoft.dependencyinjection.5.0.1.nupkg.sha512",
         "automapper.extensions.microsoft.dependencyinjection.nuspec",
         "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll",
@@ -5655,7 +5686,7 @@
       ]
     },
     "Microsoft.AspNetCore.Razor.Design/2.1.1": {
-      "sha512": "f8PKGcxiezL1RVqmnmrazj24Mj4KCTSXqwdotl7Lc+82h8iLV7ItxEIShTJakG7M9iw0ZuCocM0J/IhYesdQrg==",
+      "sha512": "BOK5fckW9v7xWjpEI6bPGwkjw10OPVASZcAa8HoWJo/0Mmg4Azddj92v8noU+YgvD/6zNZ9o/RiRXXKxk5rYwQ==",
       "type": "package",
       "path": "microsoft.aspnetcore.razor.design/2.1.1",
       "files": [
@@ -6235,6 +6266,20 @@
         "microsoft.entityframeworkcore.relational.nuspec"
       ]
     },
+    "Microsoft.EntityFrameworkCore.Relational.Design/1.1.6": {
+      "sha512": "UVq94HrsK/eUSo4bkYBYW30UQ/uH2GoXcjTv7oIdeMKnAjLE3jm3C/BmftkQpr9beQCSbbcEySaVDhjlhrcQJQ==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.relational.design/1.1.6",
+      "files": [
+        ".signature.p7s",
+        "lib/net451/Microsoft.EntityFrameworkCore.Relational.Design.dll",
+        "lib/net451/Microsoft.EntityFrameworkCore.Relational.Design.xml",
+        "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Relational.Design.dll",
+        "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Relational.Design.xml",
+        "microsoft.entityframeworkcore.relational.design.1.1.6.nupkg.sha512",
+        "microsoft.entityframeworkcore.relational.design.nuspec"
+      ]
+    },
     "Microsoft.EntityFrameworkCore.SqlServer/2.1.1": {
       "sha512": "+owJ/RcmFOrRseb+9PEjqhoOcE7l+DeTe0Jwte0tqhYoiPxZpC6jtGhUhpftPSBkC662siPR7kNm2TfxpPVilQ==",
       "type": "package",
@@ -6245,6 +6290,20 @@
         "lib/netstandard2.0/Microsoft.EntityFrameworkCore.SqlServer.xml",
         "microsoft.entityframeworkcore.sqlserver.2.1.1.nupkg.sha512",
         "microsoft.entityframeworkcore.sqlserver.nuspec"
+      ]
+    },
+    "Microsoft.EntityFrameworkCore.SqlServer.Design/1.1.6": {
+      "sha512": "TBH6CWmLns4U38WO64Q9ecOcWdMHCdFX/2vM4aJtbrt2CftG4TbAY5/9BNVacw/64HbCv7Hzjk/5xU26gxL8Xg==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.sqlserver.design/1.1.6",
+      "files": [
+        ".signature.p7s",
+        "lib/net451/Microsoft.EntityFrameworkCore.SqlServer.Design.dll",
+        "lib/net451/Microsoft.EntityFrameworkCore.SqlServer.Design.xml",
+        "lib/netstandard1.3/Microsoft.EntityFrameworkCore.SqlServer.Design.dll",
+        "lib/netstandard1.3/Microsoft.EntityFrameworkCore.SqlServer.Design.xml",
+        "microsoft.entityframeworkcore.sqlserver.design.1.1.6.nupkg.sha512",
+        "microsoft.entityframeworkcore.sqlserver.design.nuspec"
       ]
     },
     "Microsoft.EntityFrameworkCore.Tools/2.1.3": {
@@ -7246,10 +7305,11 @@
       ]
     },
     "Microsoft.VisualStudio.Web.BrowserLink/2.1.0-preview1-final": {
-      "sha512": "cN01ohsPD/NUyUmdH8p/NVNkHncloEJU9ykhZTKwWO+B4rK175EtGNGmU1RDramPIaQVQV6ljT2XhjlYaUHcjQ==",
+      "sha512": "aKRUI/sh2bBxqWv8rfuCUPGOa6Qu+q+Acn236GGcWBbol1ju+QZYg11DXEWX+NsCYkSaWejvsSHF0EeUJmqeXQ==",
       "type": "package",
       "path": "microsoft.visualstudio.web.browserlink/2.1.0-preview1-final",
       "files": [
+        ".signature.p7s",
         "lib/netstandard2.0/Microsoft.VisualStudio.Web.BrowserLink.dll",
         "lib/netstandard2.0/Microsoft.VisualStudio.Web.BrowserLink.xml",
         "microsoft.visualstudio.web.browserlink.2.1.0-preview1-final.nupkg.sha512",
@@ -7257,7 +7317,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration/2.1.1": {
-      "sha512": "EJkd4EOM2FrT1qWo5Z/LsmTxmiZBC6reETLAXnF6CG/c1IeZqRP/PY6PuyOz67LS5McOJ706egnLktJ23XVvEQ==",
+      "sha512": "xvNRQmZOYfuReVC9trT8sTYVRm7yJzI5z1YZ4iO6Im/EWOWoqqLNoYG0sY8EHnp4DOtioGJ/hmJ+ksqaJN8aBA==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration/2.1.1",
       "files": [
@@ -7269,7 +7329,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration.Contracts/2.1.1": {
-      "sha512": "mlO1U3Bt05P/oDa0STUtV6mOKlsXyCO2Nu0YKYmuhLxSw8sN6XMQ7ucoHA4YP3d/lVLvqRWnlEy8H8/AH21dOw==",
+      "sha512": "Su++Q22kR3EaWmg7flhuAX0xZFPVL4z99HYc9CNQZksi4L/lCzxyIRXJUV3qTEyyX8wkl6sx3RDVUcYcBTdjlg==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration.contracts/2.1.1",
       "files": [
@@ -7281,7 +7341,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration.Core/2.1.1": {
-      "sha512": "AakHxdXgfX4BSEYMuQ6Yu/bT8LEhbQX69mcbIWYvbBcNZ2YR98mmU7NstLDzqhk2pkVqp29KFLmxzgVV39QKAQ==",
+      "sha512": "uIhfMpJOjQi/fBtKglWDP8lSuiX5AOQwomCS6hZ37EzKB5tMnaH+Z7DbkEFoZLaGcLDaskoOJ0nhIjA9A2i0Rg==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration.core/2.1.1",
       "files": [
@@ -7293,7 +7353,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration.Design/2.1.1": {
-      "sha512": "wkcgKiinxx9CW8SiABMXV1HUgb9DE7kQ8F9440R8WxLLiTsutn/a2ORzd6W38psFJq2VXc6jNXjXO9wasgnocg==",
+      "sha512": "d4xk6rWvW9HR2/QdwQ7OfrbmQcMi4EE3IlZT3JwfIRFdbtCXDFz+PCjs/qomLC+d+vlEXZuPvneX+G5FF9d1MA==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration.design/2.1.1",
       "files": [
@@ -7315,7 +7375,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore/2.1.1": {
-      "sha512": "jKSk/wr0RUSlZsqqLr7UmNvfbMC8j18xxG9iEJoCoN5wgEzq/Yd9FFF9FAYDI3IWEQSKFH0IYOx8WrzwmQ7nqw==",
+      "sha512": "03wiQubZKezzT5OKgnExDOnzrtn/TQG4QDQfOJI524yZ2CCC/h4PxtPmO5FDH7x1qP/99EXLaZYojE9fZ7u9Yw==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration.entityframeworkcore/2.1.1",
       "files": [
@@ -7328,7 +7388,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration.Templating/2.1.1": {
-      "sha512": "7lOJU7JLaWZ6GmlLDsIVrjRWfUaYesclLRS8t8aqg5+KvNhasZ6JyfrQI4uiE2b7jXV8YegN9BWmXsp/Nhya3w==",
+      "sha512": "8rubHXs2ufTJ205H2c9aSga/X8ToURtGguISBHEGkAcz/1Qp922jAaGvGvvJNhoXiBg/9K5VupkfkJDvnhN3/Q==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration.templating/2.1.1",
       "files": [
@@ -7340,7 +7400,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration.Utils/2.1.1": {
-      "sha512": "WgaLZas8Uhcad1RFgf1b6Vm8YYaGnK2vfov+4zrz7IPiN6RehtT5nsBJBYblpN1ET0zJdcXJ91p3Y1ox+Le4bg==",
+      "sha512": "MRtBhRi0CQ36yi9r08l/j7I24a2bfiAW9N6fSq69M5mZFw1vjijPaM2NPokWv9hqT0aUCLNKCX7A6E20XgYE1w==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration.utils/2.1.1",
       "files": [
@@ -7352,7 +7412,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGenerators.Mvc/2.1.1": {
-      "sha512": "kwj2oBltHrD/W2ELyvkENjGpw62m1w3KplCfH9zLcgtE1r6oHtp5Hzf19It756Q1hHfTWfYZmzBySu7yRENyLQ==",
+      "sha512": "LhsJrKf4fMqOyaVqAexbpkR6GmHDuVeek+s1NFGwFYFZAgSbnLmBt8DIw41zGbEXO/GYiPLTOTA7F1fJknsf6g==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegenerators.mvc/2.1.1",
       "files": [
@@ -7720,10 +7780,11 @@
       ]
     },
     "NLog/4.5.8": {
-      "sha512": "t0NJVxerdU9QYgQQLa4XA3v1eLDBnJ5MF7AyoMxmJu38iAzrB4hVZYcCH3j0tKFKm7fOIx5jNbnAd9GD4mRTEA==",
+      "sha512": "8MzV81cLzeg4oIR04GvRa9YdaKHuvF+mPPwNHBs0hsSOkhFdVg2jsRU+vUZJ5Z693dBHZrxjjr0f/il1Nrioww==",
       "type": "package",
       "path": "nlog/4.5.8",
       "files": [
+        ".signature.p7s",
         "lib/monoandroid44/NLog.dll",
         "lib/monoandroid44/NLog.xml",
         "lib/net35/NLog.dll",
@@ -7751,10 +7812,11 @@
       ]
     },
     "NLog.Extensions.Logging/1.2.1": {
-      "sha512": "FEwSQFXrj1kp4kcG1q7E/vKM+jVyCUQ9R/sb18+iyjD2gpEY+d24OFDWQiSC+L9rcdWETjF8YzYS1O2pFzFZ9w==",
+      "sha512": "7vdjQ7r/GO+WqX8OlBnnHppuYSeb9eTSUdRYXcbAMj5/FfWM/G4AN6sS63MZknxKG1yGIjUZaOwKyMID7rgeQg==",
       "type": "package",
       "path": "nlog.extensions.logging/1.2.1",
       "files": [
+        ".signature.p7s",
         "lib/net451/NLog.Extensions.Logging.dll",
         "lib/net451/NLog.Extensions.Logging.xml",
         "lib/net461/NLog.Extensions.Logging.dll",
@@ -7786,10 +7848,11 @@
       ]
     },
     "NUnit/3.10.1": {
-      "sha512": "E3ii6+VLdeIxTQ5gPjk/7g/xl+aCifbfcIkiGayZCuos+22FEdtKGrxMe6SzoXCQCcL7gdqhfNIFTaZ1+dS18g==",
+      "sha512": "+qPe5OscM2hvV496Tym/RVa8H3yUHg7WDcV0UjxHnWshmzh/V9h36MMkrYfom2Sxb/zIJ1c8NGqTg8biGaoxZA==",
       "type": "package",
       "path": "nunit/3.10.1",
       "files": [
+        ".signature.p7s",
         "CHANGES.md",
         "LICENSE.txt",
         "NOTICES.txt",
@@ -8084,10 +8147,11 @@
       ]
     },
     "Swashbuckle.AspNetCore/3.0.0": {
-      "sha512": "aM17YeBlYLIftD+4xCUPw/yT+FLjCyOCFinikXj42hntFYkkAuTRGLm9x+t7kfC13/OBiMJ1XEjl3MGeknx1cw==",
+      "sha512": "MVDLekgUsowAtPVif6Qf4wK1sNZVvH3+w0t9CgYJfUS8o5bcHp4n2wNbZSCef9ctbzowCCaaaUORcuPne8rSCQ==",
       "type": "package",
       "path": "swashbuckle.aspnetcore/3.0.0",
       "files": [
+        ".signature.p7s",
         "lib/net451/Swashbuckle.AspNetCore.dll",
         "lib/netstandard1.6/Swashbuckle.AspNetCore.dll",
         "swashbuckle.aspnetcore.3.0.0.nupkg.sha512",
@@ -8095,10 +8159,11 @@
       ]
     },
     "Swashbuckle.AspNetCore.Swagger/3.0.0": {
-      "sha512": "smrewcRU7HK+3WRZWNYFXVAqD1apyIEwcYEdzVu23tNJek8GQM1V8yqIlj41D8CbYoqaeF+fDhkUDY6FSXUDuw==",
+      "sha512": "byxupaMfEioVpfZLVvI1PzSp5YjIIixwH9NQFJsab1Ye4EgzWoPUJg+QyTY5kZNGDmZ2ir/WfTJyEV4seOCxLw==",
       "type": "package",
       "path": "swashbuckle.aspnetcore.swagger/3.0.0",
       "files": [
+        ".signature.p7s",
         "lib/net451/Swashbuckle.AspNetCore.Swagger.dll",
         "lib/net451/Swashbuckle.AspNetCore.Swagger.xml",
         "lib/netstandard1.6/Swashbuckle.AspNetCore.Swagger.dll",
@@ -8108,10 +8173,11 @@
       ]
     },
     "Swashbuckle.AspNetCore.SwaggerGen/3.0.0": {
-      "sha512": "DjGV/s6dUi+Xg4ofc2/TCDJlFhGAstvStCBAJ8F2mllIRAtf+s0HsfAIPmFy+W0gOzo1/voRtMKU1uvINZtDFw==",
+      "sha512": "yzsizeij622YTehkcMFNP1sH/v0CEGZ3NiEkJC4vG6rt7dgCRXZ2rQdN4mn44XlTBv+616ga5fYySuJzka+y9Q==",
       "type": "package",
       "path": "swashbuckle.aspnetcore.swaggergen/3.0.0",
       "files": [
+        ".signature.p7s",
         "lib/net451/Swashbuckle.AspNetCore.SwaggerGen.dll",
         "lib/net451/Swashbuckle.AspNetCore.SwaggerGen.xml",
         "lib/netstandard1.6/Swashbuckle.AspNetCore.SwaggerGen.dll",
@@ -8121,10 +8187,11 @@
       ]
     },
     "Swashbuckle.AspNetCore.SwaggerUI/3.0.0": {
-      "sha512": "Gg3rELfq7qJOx8d4xO6hvqSdhMk9ofQCdtLVjBAAVyKehkJRCqiXUO+hJ+/GeEngkaLEglaK/+6an4gC/AxOlg==",
+      "sha512": "rmQEdp6njngOGs/0nT2g2olygKiG+SdDVf4Ju7y7Pn6JoiGZ5VukrzaCnPxOvEOkq1vJeV8QCTaNytlTwHaBvQ==",
       "type": "package",
       "path": "swashbuckle.aspnetcore.swaggerui/3.0.0",
       "files": [
+        ".signature.p7s",
         "lib/net451/Swashbuckle.AspNetCore.SwaggerUI.dll",
         "lib/net451/Swashbuckle.AspNetCore.SwaggerUI.xml",
         "lib/netstandard1.6/Swashbuckle.AspNetCore.SwaggerUI.dll",
@@ -12615,23 +12682,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\DELL\\.nuget\\packages\\": {},
+    "C:\\Users\\HieuLenovoLaptop\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\ITSOL.TestonlineServices\\ITSOL.TestonlineServices\\ITSOL.TestonlineServices.csproj",
+      "projectUniqueName": "E:\\ITSOL\\testoniline-services\\ITSOL.TestonlineServices\\ITSOL.TestonlineServices.csproj",
       "projectName": "ITSOL.TestonlineServices",
-      "projectPath": "D:\\Projects\\ITSOL.TestonlineServices\\ITSOL.TestonlineServices\\ITSOL.TestonlineServices.csproj",
-      "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\ITSOL.TestonlineServices\\ITSOL.TestonlineServices\\obj\\",
+      "projectPath": "E:\\ITSOL\\testoniline-services\\ITSOL.TestonlineServices\\ITSOL.TestonlineServices.csproj",
+      "packagesPath": "C:\\Users\\HieuLenovoLaptop\\.nuget\\packages\\",
+      "outputPath": "E:\\ITSOL\\testoniline-services\\ITSOL.TestonlineServices\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\HieuLenovoLaptop\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12644,11 +12711,11 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "D:\\Projects\\ITSOL.TestonlineServices\\ITSOL.Business\\ITSOL.Business.csproj": {
-              "projectPath": "D:\\Projects\\ITSOL.TestonlineServices\\ITSOL.Business\\ITSOL.Business.csproj"
+            "E:\\ITSOL\\testoniline-services\\ITSOL.Business\\ITSOL.Business.csproj": {
+              "projectPath": "E:\\ITSOL\\testoniline-services\\ITSOL.Business\\ITSOL.Business.csproj"
             },
-            "D:\\Projects\\ITSOL.TestonlineServices\\TSOL.DAL\\ITSOL.DAL.csproj": {
-              "projectPath": "D:\\Projects\\ITSOL.TestonlineServices\\TSOL.DAL\\ITSOL.DAL.csproj"
+            "E:\\ITSOL\\testoniline-services\\TSOL.DAL\\ITSOL.DAL.csproj": {
+              "projectPath": "E:\\ITSOL\\testoniline-services\\TSOL.DAL\\ITSOL.DAL.csproj"
             }
           }
         }

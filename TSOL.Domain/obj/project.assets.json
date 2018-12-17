@@ -176,23 +176,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\DELL\\.nuget\\packages\\": {},
+    "C:\\Users\\HieuLenovoLaptop\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\ITSOL.TestonlineServices\\TSOL.Domain\\ITSOL.Domain.csproj",
+      "projectUniqueName": "E:\\ITSOL\\testoniline-services\\TSOL.Domain\\ITSOL.Domain.csproj",
       "projectName": "ITSOL.Domain",
-      "projectPath": "D:\\Projects\\ITSOL.TestonlineServices\\TSOL.Domain\\ITSOL.Domain.csproj",
-      "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\ITSOL.TestonlineServices\\TSOL.Domain\\obj\\",
+      "projectPath": "E:\\ITSOL\\testoniline-services\\TSOL.Domain\\ITSOL.Domain.csproj",
+      "packagesPath": "C:\\Users\\HieuLenovoLaptop\\.nuget\\packages\\",
+      "outputPath": "E:\\ITSOL\\testoniline-services\\TSOL.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\HieuLenovoLaptop\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
