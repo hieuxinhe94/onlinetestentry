@@ -1,0 +1,41 @@
+<mat-dialog-content>
+<div  *ngIf="isShowDetail" class="dialog-container" >
+    <h2 mat-dialog-title [innerHTML]="question.title"> </h2>
+
+    <mat-dialog-content cdkScrollable class="mat-typography" style="width: auto !important;" [innerHTML]="question.content">
+
+    </mat-dialog-content>
+    <mat-checkbox [checked]="question.isMultiSelection"  [disabled]="true" > Is Multi Selection</mat-checkbox>
+    <mat-divider></mat-divider>
+
+  <div *ngFor="let a of question.answers">
+    <div [innerHTML]="a.title"></div>
+    <mat-checkbox [checked]="a.isRightAnswer"  [disabled]="true" > is right answer</mat-checkbox>
+    <mat-divider></mat-divider>
+  </div>
+<hr>
+
+  <mat-dialog-actions align="end">
+  <button mat-icon-button color="accent" (click)="delete()">
+      <mat-icon aria-label="" >delete</mat-icon>
+    </button>
+    <button mat-icon-button color="primary" (click)="edit()">
+      <mat-icon aria-label="">build</mat-icon>
+    </button>
+  </mat-dialog-actions>
+</div>
+</mat-dialog-content>
+<mat-card *ngIf="isShowConfirmDelete">
+
+  <h2 mat-dialog-title> Do you want to delete it ?</h2>
+ <mat-dialog-content class="mat-typography" style="width: auto !important;">
+    {{question.id}} .  {{question.title}}
+  <hr>
+  {{question.content}}
+  <hr>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button  (click)="onNoDeleteClick()">Cancel</button>
+  <button mat-button  cdkFocusInitial (click)="onYesDeleteClick()" >OK</button>
+</mat-dialog-actions>
+</mat-card>

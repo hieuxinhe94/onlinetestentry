@@ -1,0 +1,28 @@
+
+<h2 mat-dialog-title>Define new subject</h2>
+<mat-dialog-content class="mat-typography">
+<div class="dialog-container">
+  <mat-form-field>
+    <input matInput [(ngModel)]="newQuizSubject.name"  placeholder="name" required>
+    <mat-hint align="end">name of the subject</mat-hint>
+  </mat-form-field>
+
+
+  <mat-form-field>
+    <textarea matInput [(ngModel)]="newQuizSubject.description" placeholder="description"></textarea>
+    <mat-hint align="end">May be null, alow html</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+      <input type="number" [(ngModel)]="newQuizSubject.timeUpMinutes" matInput placeholder="20" required>
+   <br>
+   <small>Number of minutes maximum </small>
+  </mat-form-field>
+
+</div>
+
+<mat-dialog-actions align="end">
+ <button mat-button (click)="onNoClick()">Cancel</button>
+ <button mat-button cdkFocusInitial (click)="onYesClick()">OK</button>
+</mat-dialog-actions>
+</mat-dialog-content>

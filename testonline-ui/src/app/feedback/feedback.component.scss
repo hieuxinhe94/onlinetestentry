@@ -1,0 +1,17 @@
+.feedback-container-all {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+
+.feedback-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+
+}
+
+.feedback-container > * {
+  width: 100%;
+  line-height: 15px;
+}

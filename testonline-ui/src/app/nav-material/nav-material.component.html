@@ -1,0 +1,191 @@
+<div class="toolbar-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="first-toolbar mat-medium-tall ">
+
+
+
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="snav.toggle()">
+        <mat-icon>
+          menu
+        </mat-icon>
+      </button>
+      <br />
+      <span>
+
+        {{title}}
+      </span>
+      <span class="fill-remaining-space"></span>
+      <button mat-raised-button color="accent" *ngIf="isCandidate$ | async as isLoggedIn">Remaining time: {{
+        minutesOfTotalTimeRemainingAsync }} : {{secondOfTotalTimeRemainingAsync}}</button>
+      <button mat-button (click)="onLogout()" *ngIf="isLoggedIn$ | async as isLoggedIn">Logout</button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <!-- <mat-toolbar mat-scroll-shrink  *ngIf="!isHiddenToolbar"  color="accent" class="second-toolbar" role="heading">
+    <mat-toolbar-row>
+      <span>Name of child page</span>
+      <span class="toolbar-spacer"></span>
+      <button mat-button (click)="hiddenToolbar()">    <mat-icon class="toolbar-icon" >close</mat-icon> </button>
+    </mat-toolbar-row>
+  </mat-toolbar> -->
+
+  <mat-sidenav-container class="example-sidenav-container " [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav class="mat-elevation-z10" [opened]="true" [mode]="mobileQuery.matches ? 'over' : 'side'"
+      [fixedInViewport]="mobileQuery.matches" fixedTopGap="50">
+
+      <!-- users menu category list -->
+      <mat-nav-list *ngIf="isLoggedIn$ && isCandidate$ | async as isCandidate">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title [routerLink]="['/home']">
+              <span>Home</span>
+            </mat-panel-title>
+            <mat-panel-description>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-list>
+            <mat-list-item [routerLink]="['/home']">
+              <i> <small> Getting started </small> </i>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item [routerLink]="['/about']">
+              <i> <small> About our company </small> </i>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item [routerLink]="['/contacts']">
+              <i> <small> Contacts </small> </i>
+            </mat-list-item>
+          </mat-list>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel [expanded]="true">
+
+          <mat-expansion-panel-header>
+            <mat-panel-title [routerLink]="['/quiz-dashboard']">
+              <span>Subjects</span>
+            </mat-panel-title>
+            <mat-panel-description>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <mat-list *ngFor="let item of candidateMenus">
+            <mat-list-item [routerLink]="['/quiz']" (click)="navigateToQuiz(1,item.key)">
+              <button mat-button>{{item.val.toUpperCase()}}</button>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+          </mat-list>
+
+        </mat-expansion-panel>
+
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title [routerLink]="['/summary']">
+              <span>Summary</span>
+            </mat-panel-title>
+            <mat-panel-description>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title [routerLink]="['/feedbacks']">
+              <span>Feedbacks</span>
+            </mat-panel-title>
+            <mat-panel-description>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+
+      </mat-nav-list>
+      <!-- end of users menu category list -->
+
+      <!-- admin menu category list -->
+      <mat-nav-list *ngIf="isLoggedIn$ && isEmployee$ | async as isAdmin">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title [routerLink]="['/admin-dashboard']">
+              <span>Admin Dashboard</span>
+            </mat-panel-title>
+            <mat-panel-description>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-list>
+              <mat-list-item [routerLink]="['/app-setup']">
+                <i> <small> Configuration </small> </i>
+              </mat-list-item>
+            <mat-list-item [routerLink]="['/quiz-analys']">
+              <i> <small> Quiz summary </small> </i>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item [routerLink]="['/candidate-manage']">
+              <i> <small> Candidate manage </small> </i>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item [routerLink]="['/candidate-result-analys']">
+              <i> <small> Candidate result summary </small> </i>
+            </mat-list-item>
+          </mat-list>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <span>Subjects manage</span>
+            </mat-panel-title>
+            <mat-panel-description>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-list>
+
+            <mat-list *ngFor="let item of subjectMenus">
+              <mat-list-item [routerLink]="['/quiz-manage']" (click)="navigateToQuiz(2,item.key)">
+                <i> <small> {{item.val.toLowerCase()}}</small> </i>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+            </mat-list>
+
+            <mat-list-item [routerLink]="['/quiz-manage']" [queryParams]="{subject: 'new'}">
+              <i> <small> Add new quiz subject</small> </i>
+            </mat-list-item>
+          </mat-list>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title [routerLink]="['/historycal']">
+              <span>History</span>
+            </mat-panel-title>
+            <mat-panel-description>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title [routerLink]="['/feedbacks']">
+              <span>Feedbacks</span>
+            </mat-panel-title>
+            <mat-panel-description>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+        <hr>
+
+      </mat-nav-list>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content fxFlexFill cdkScrollable>
+      <div class='container'>
+        <div class='col-md-1>'></div>
+        <div class='col-md-8>'>
+          <hr>
+          <router-outlet></router-outlet>
+
+        </div>
+      </div>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

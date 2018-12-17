@@ -1,0 +1,11 @@
+.dialog-container {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  min-width: 800px;
+}
+
+.dialog-container > * {
+  width: 100%;
+  line-height: auto;
+}

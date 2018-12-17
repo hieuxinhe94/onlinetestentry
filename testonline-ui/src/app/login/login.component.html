@@ -1,0 +1,27 @@
+<div class="signin-content">
+    <mat-card>
+      <mat-card-content>
+        <form [formGroup]="form" (ngSubmit)="onSubmit(); openSnackBar()">
+          <p>Please login to continue</p>
+          <mat-form-field class="full-width-input">
+            <input matInput placeholder="User" formControlName="userName" required>
+            <mat-error *ngIf="isFieldInvalid('userName')">
+              Please input your user name
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="full-width-input">
+            <input matInput type="password" placeholder="Password" formControlName="password" required>
+            <mat-error *ngIf="isFieldInvalid('userName')">
+              Please input your password
+            </mat-error>
+          </mat-form-field>
+
+          <mat-card-subtitle color="accent" >{{message}} </mat-card-subtitle>
+
+          <br>
+          <button mat-raised-button color="primary">Login</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+

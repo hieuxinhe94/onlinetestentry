@@ -1,0 +1,42 @@
+<h2 mat-dialog-title> Register new candidate </h2>
+<mat-dialog-content class="mat-typography dialog-add-new dialog-container">
+
+  <div *ngIf="isCreateNew">
+  <label>Candidate interview type: </label>
+  <hr>
+  <section class="example-section"  >
+    <mat-checkbox class="example-margin"   (change)="onCheckedSubject(s)" *ngFor="let s of subjects">{{s}}</mat-checkbox>
+
+  </section>
+</div>
+
+  <mat-form-field [hideRequiredMarker]="false">
+    <input matInput [readOnly]="!isCreateNew" [readonly]="!isCreateNew" [(ngModel)]="currentCandidate.fullName"  (change)="onChangeName()" placeholder="Candidate name" required>
+  </mat-form-field>
+  <hr>
+  <mat-form-field  [hideRequiredMarker]="false">
+    <input matInput [(ngModel)]="currentCandidate.userName" [readonly]="true" [readOnly]="true"   [contentEditable]="false" #input_username
+      required>
+    <mat-hint align="start">Candidate login name : {{currentCandidate.userName}} </mat-hint>
+  </mat-form-field>
+  <hr>
+  <mat-form-field [hideRequiredMarker]="false">
+    <input matInput [(ngModel)]="currentCandidate.password" placeholder="Candidate login password">
+    <mat-hint align="end">May be null</mat-hint>
+  </mat-form-field>
+  <hr>
+  <mat-form-field [hideRequiredMarker]="false">
+    <input matInput [(ngModel)]="currentCandidate.phoneNumber" placeholder="Candidate phone number">
+    <mat-hint align="end">May be null</mat-hint>
+  </mat-form-field>
+  <hr>
+  <mat-form-field [hideRequiredMarker]="false">
+    <input matInput [(ngModel)]="currentCandidate.address" placeholder="Candidate address">
+    <mat-hint align="end">May be null</mat-hint>
+  </mat-form-field>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close (click)="onNoClick()">Cancel</button>
+  <button mat-button cdkFocusInitial (click)="onYesClick()">OK</button>
+</mat-dialog-actions>

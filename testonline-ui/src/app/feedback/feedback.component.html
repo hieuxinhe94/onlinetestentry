@@ -1,0 +1,23 @@
+<mat-card class="feedback-container-all" >
+
+<h2 mat-dialog-title>Define new subject</h2>
+<mat-dialog-content class="mat-typography">
+<div class="feedback-container">
+  <mat-form-field>
+      <textarea matInput placeholder="Leave a feedback message"></textarea>
+    <mat-hint align="end">name of the subject</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+      <input matInput type="tel" placeholder="your phone number" required>
+  </mat-form-field>
+
+</div>
+
+<mat-dialog-actions align="end">
+ <button mat-button mat-dialog-close>Cancel</button>
+ <button mat-button [mat-dialog-close]="true" cdkFocusInitial>OK</button>
+</mat-dialog-actions>
+</mat-dialog-content>
+
+</mat-card>

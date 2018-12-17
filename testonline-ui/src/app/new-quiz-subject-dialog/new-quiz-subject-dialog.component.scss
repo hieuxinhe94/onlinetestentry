@@ -1,0 +1,10 @@
+.dialog-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 800px;
+}
+
+.dialog-container > * {
+  width: 100%;
+  line-height: 15px;
+}

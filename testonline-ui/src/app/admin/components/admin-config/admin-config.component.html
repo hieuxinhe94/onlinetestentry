@@ -1,0 +1,46 @@
+
+<button mat-button color="accent" mat-dialog-close (click)="onNoClick()">Cancel</button>
+<button mat-button cdkFocusInitial color="primary" (click)="onYesClick()" >Save </button>
+<hr>
+<!--Short configs-->
+<mat-form-field class="config-full-width">
+  <mat-hint align="end">APP_NAME</mat-hint>
+  <input matInput placeholder="Application Name" [(ngModel)]="APP_NAME">
+</mat-form-field>
+
+<mat-form-field class="config-full-width">
+  <mat-hint align="end">VERSION</mat-hint>
+  <input matInput placeholder="Version" [(ngModel)]="VERSION">
+</mat-form-field>
+
+<!--Long configs-->
+<!-- <mat-form-field class="config-full-width">
+    <mat-hint align="end">VERSION</mat-hint>
+    <textarea matInput placeholder="Leave a comment"></textarea>
+  </mat-form-field> -->
+
+<!--complex configs-->
+<mat-hint align="end">ABOUT_COMPANY</mat-hint>
+<ckeditor [(ngModel)]="ABOUT_COMPANY" [editor]="Editor" [required]="true"> </ckeditor>
+<hr>
+
+<mat-hint align="end">CONTACTS</mat-hint>
+<ckeditor [(ngModel)]="CONTACTS" [editor]="Editor" [required]="true"> </ckeditor>
+<hr>
+
+<mat-form-field class="config-full-width">
+  <mat-hint align="end">GETTING_STARTED_TEXT</mat-hint>
+  <input matInput placeholder="GETTING_STARTED_TEXT" [(ngModel)]="GETTING_STARTED_TEXT">
+</mat-form-field>
+
+<mat-hint align="end">GETTING_STARTED_MENU_STEP_1</mat-hint>
+<ckeditor [(ngModel)]="GETTING_STARTED_MENU_STEP_1" [editor]="Editor" [required]="true"> </ckeditor>
+<hr>
+
+<mat-hint align="end">GETTING_STARTED_MENU_STEP_2</mat-hint>
+<ckeditor [(ngModel)]="GETTING_STARTED_MENU_STEP_2" [editor]="Editor" [required]="true"> </ckeditor>
+<hr>
+
+<mat-hint align="end">GETTING_STARTED_MENU_STEP_3</mat-hint>
+<ckeditor [(ngModel)]="GETTING_STARTED_MENU_STEP_3" [editor]="Editor" [required]="true"> </ckeditor>
+<hr>

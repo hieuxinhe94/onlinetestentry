@@ -1,0 +1,47 @@
+<div class="grid-container">
+
+    <div style="display: block">
+        <canvas baseChart
+                [datasets]="radarChartData"
+                [labels]="radarChartLabels"
+                [chartType]="radarChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+      </div>
+      <h3 color="primary" selected> Details </h3>
+
+  <mat-grid-list cols="4" rowHeight="200px">
+      <mat-grid-tile *ngFor="let cardQuiz of submitedQuizes " [colspan]="2" [rowspan]="1">
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>
+             Subject:  <b>
+                  {{cardQuiz.candidateQuizAssign.quiz.name}}
+              </b>
+
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <div>
+                <mat-list>
+                    <mat-divider></mat-divider>
+                    <mat-progress-bar mode="determinate" value="{{cardQuiz.answeredQuestionCount * 100 / cardQuiz.totalQuestionCount}}"></mat-progress-bar>
+                    <mat-list-item> <i>
+                     {{cardQuiz.answeredQuestionCount}}/{{cardQuiz.totalQuestionCount}}
+                      &nbsp; answered question
+                   </i></mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-progress-bar mode="determinate" value="{{cardQuiz.rightQuestionCount * 100 / cardQuiz.totalQuestionCount}}"></mat-progress-bar>
+                    <mat-list-item>
+                        {{cardQuiz.rightQuestionCount}}
+                      &nbsp; right /{{cardQuiz.totalQuestionCount}}
+                       answers </mat-list-item>
+
+                  </mat-list>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+</div>

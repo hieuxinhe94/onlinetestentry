@@ -1,0 +1,13 @@
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 2;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items:  end-start;
+}
+.example-card {
+  max-width: 400px;
+}
+

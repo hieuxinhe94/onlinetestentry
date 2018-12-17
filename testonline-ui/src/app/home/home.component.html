@@ -1,0 +1,45 @@
+
+
+<mat-horizontal-stepper  #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Step 1</ng-template>
+      <div [innerHTML]="config_step1" ></div>
+      <div>
+        <button mat-button color="primary" matStepperNext>Next</button>
+      </div>
+
+
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Step 2</ng-template>
+    <div [innerHTML]="config_step2" ></div>
+
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button color="primary" matStepperNext>Next</button>
+      </div>
+
+
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Step 3</ng-template>
+    <div [innerHTML]="config_step3" ></div>
+    <div>
+      <button mat-button color="primary" matStepperPrevious>Back</button>
+      <button mat-button  (click)="stepper.reset()">Reset</button>
+    </div>
+
+
+  </mat-step>
+
+</mat-horizontal-stepper>
+
+<hr>
+<hr>
+<div class="sidenav-content vertical-align-middle">
+  <button mat-raised-button color="accent" (click)="openBottomSheet()">START QUIZ NOW !</button>
+</div>

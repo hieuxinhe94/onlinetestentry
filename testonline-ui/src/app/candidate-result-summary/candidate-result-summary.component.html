@@ -1,0 +1,78 @@
+<mat-form-field class="example-full-width">
+    <input matInput placeholder="Search" [(ngModel)]="searchText"    (change)="doSeach()" value="">
+
+
+
+  </mat-form-field>
+
+  <button align="end" color="primary" mat-button (click)="exportExcel()">Export to excel</button>
+<div  class="mat-elevation-z8">
+  <table id="table" mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+      <ng-container  matColumnDef="index" >
+          <th colspan="1"  mat-header-cell *matHeaderCellDef mat-sort-header > No. </th>
+          <td colspan="1"  mat-cell *matCellDef="let element"> {{element.index}} </td>
+        </ng-container>
+
+      <ng-container matColumnDef="userName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header > Candidate </th>
+        <td mat-cell *matCellDef="let element"> {{element.candidateQuizAssign.candidate.userName}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="quizname">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header > QUIZ </th>
+        <td mat-cell *matCellDef="let element"> {{element.candidateQuizAssign.quiz.name}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="answeredQuestionCount">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header > Answered count </th>
+        <td mat-cell *matCellDef="let element"> {{element.answeredQuestionCount}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="rightQuestionCount">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header > Right count </th>
+        <td mat-cell *matCellDef="let element"> {{element.rightQuestionCount}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="totalQuestionCount">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header > Total questions </th>
+        <td mat-cell *matCellDef="let element"> {{element.totalQuestionCount}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="mark">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header > Mark </th>
+        <td mat-cell *matCellDef="let element"> {{element.mark}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="workingTimeMinues">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header > Times </th>
+        <td mat-cell *matCellDef="let element"> {{element.workingTimeMinues}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="dateSubmited" >
+        <th mat-header-cell *matHeaderCellDef mat-sort-header > Date submited </th>
+        <td mat-cell *matCellDef="let element"> {{element.dateSubmited | date }} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+          >
+      </tr>
+    </table>
+
+
+  <mat-paginator #paginator
+    [length]="dataSource.data?.length"
+    [pageIndex]="0"
+    [pageSize]="50"
+    [pageSizeOptions]="[25, 50, 100, 250]">
+  </mat-paginator>
+</div>
+
+<script>
+$("table").tableExport();
+</script>

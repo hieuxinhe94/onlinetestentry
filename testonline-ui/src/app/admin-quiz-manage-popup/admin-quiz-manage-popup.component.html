@@ -1,0 +1,39 @@
+
+
+
+<h2 *ngIf="isCreateNew" mat-dialog-title>Define new questions</h2>
+<h2 *ngIf="!isCreateNew" mat-dialog-title>Edit the questions</h2>
+<mat-dialog-content class="mat-typography">
+
+<div class="dialog-container">
+    <mat-hint align="end">Title</mat-hint>
+    <ckeditor [(ngModel)]="currentQuestion.title"  [editor]="Editor" [required]="true"  > </ckeditor>
+    <hr>
+    <mat-hint align="end">Content (may be null)</mat-hint>
+    <ckeditor [(ngModel)]="currentQuestion.content" [editor]="Editor" [required]="false"  ></ckeditor>
+    <hr>
+
+
+  <mat-checkbox matInput [(ngModel)]="currentQuestion.isMultiSelection"  (change)="onChangeMultiSelectBox()"  >Multiple answer ?</mat-checkbox> <br>
+  <small>This quesion alow user select multiple answer </small>
+
+<hr>
+
+  <div *ngFor="let row of currentQuestion.answers">
+      <ckeditor [(ngModel)]="row.title" [editor]="Editor" [required]="true"> </ckeditor>
+      <mat-checkbox matInput [(ngModel)]="row.isRightAnswer" (change)="onSelectRightAnswer(row)"  >is right answer ?</mat-checkbox> <br>
+
+      <hr>
+  </div>
+    <div>
+        <button mat-button (click)="addNewAnswerRow()"> + New answer options</button>
+    </div>
+</div>
+
+<mat-dialog-actions align="end">
+ <button mat-button mat-dialog-close (click)="onNoClick()">Cancel</button>
+ <button mat-button cdkFocusInitial (click)="onYesClick()" >OK</button>
+</mat-dialog-actions>
+</mat-dialog-content>
+
+

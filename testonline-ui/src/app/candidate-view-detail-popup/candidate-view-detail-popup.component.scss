@@ -1,0 +1,21 @@
+.dialog-container {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  min-width: 800px;
+}
+
+.dialog-container > * {
+  width: 100%;
+  line-height: 15px;
+}
+.dialog-container-tab {
+  min-width: 1000px !important;
+  min-height: 500px !important;
+}
+.dialog-container-tab > .mat-tab-body-wrapper {
+  margin-top: 10px;
+}
+table {
+  width: 100%;
+}

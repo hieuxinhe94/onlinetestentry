@@ -1,0 +1,11 @@
+
+ <h2 mat-dialog-title> Are you sure continue ?</h2>
+ <mat-dialog-content class="mat-typography" style="width: auto !important;">
+    <p>
+  You have already done
+{{answerCount}}/ {{questionCount}}</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onNoClick()" mat-dialog-close>Cancel</button>
+  <button mat-button (click)="onYesClick()" cdkFocusInitial>Submit</button>
+</mat-dialog-actions>

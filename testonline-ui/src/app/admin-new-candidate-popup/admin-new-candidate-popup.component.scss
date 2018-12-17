@@ -1,0 +1,32 @@
+.mat-radio-button {
+  margin: 0 5px;
+}
+.dialog-add-new {
+  width: auto !important;
+
+}
+
+.dialog-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 600px;
+}
+
+.dialog-container > * {
+  width: 100%;
+}
+
+.dialog-container form > * {
+  margin: 5px 0;
+}
+
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.example-margin {
+  margin: 0 10px;
+}

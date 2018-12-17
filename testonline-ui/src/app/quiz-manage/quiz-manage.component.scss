@@ -1,0 +1,14 @@
+table {
+  width: 100%;
+}
+.button-row button,
+.button-row a {
+  margin-right: 8px;
+  width: 3px;
+}
+.mat-row:hover {
+  background-color: lightblue;
+}
+.fill-remaining-space {
+  flex: 1 1 auto;
+}

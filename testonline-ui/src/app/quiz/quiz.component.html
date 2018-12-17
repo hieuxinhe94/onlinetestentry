@@ -1,0 +1,46 @@
+<div>
+
+  <mat-accordion class="example-headers-align">
+    <mat-expansion-panel [hideToggle]="!isReviewed" *ngFor="let question  of filteredQuestions" (opened)=" panelOpenState = true ; setStep(question.index)"
+      (closed)="panelOpenState = false" [expanded]="step === question.index">
+      <mat-expansion-panel-header style="padding-top: 50px">
+        <mat-panel-title >
+          <b [innerHTML]="question.index + 1"></b> .&nbsp;
+          <span [innerHTML]=" ' '+ question?.title"></span>
+        </mat-panel-title>
+        <mat-panel-description>
+          <span class="fill-remaining-space"></span>
+          <mat-icon *ngIf="question.isAnswered" color="primary">done</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p style="word-wrap :true" [innerHTML]=" ' '+ question?.content"></p>
+      <mat-divider></mat-divider>
+      <div style="overflow :hidden !important" class="col-12" *ngFor="let a of question.answers">
+
+            <div class="option">
+          <div class="font-weight-normal" [attr.for]="a.id">
+              <div [innerHTML]="a.title"></div>
+              <mat-checkbox id="{{a.id}}" matInput [(ngModel)]="a.hasSelected" (change)="onSelectAnswer(question, a);"> {{a.index}} is right answer ?</mat-checkbox> <br>
+          </div>
+        </div>
+        <mat-divider></mat-divider>
+      </div>
+      <mat-action-row>
+        <!-- <span>Your selected {{getAnswered(question)?.title}} </span> -->
+        <button mat-button color="primary" (click)="nextStep(question.index + 1)">Next</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <hr>
+
+  <div>
+    <button mat-raised-button color="primary" (click)="onReview(); isReviewed = true;">Review</button>
+    &nbsp; &nbsp;
+    <button mat-raised-button color="accent" (click)="onSubmit()" [disabled]="preventSubmit">Submit Quiz</button>
+    &nbsp; &nbsp;
+    <button mat-raised-button color="accent" (click)="onNextQuiz()" [disabled]="preventNext">Next Quiz</button>
+  </div>
+
+
+</div>

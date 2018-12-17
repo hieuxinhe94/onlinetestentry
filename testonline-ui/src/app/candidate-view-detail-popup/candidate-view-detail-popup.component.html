@@ -1,0 +1,83 @@
+<div *ngIf="isShowDetail" class="dialog-container dialog-container-tab" >
+    <h2 mat-dialog-title>
+    {{currentCandidate.id}} .  {{currentCandidate.userName}}
+  </h2>
+        <hr>
+      <mat-tab-group class="dialog-container-tab" color="primary" backgroundColor="accent">
+        <mat-tab label="Basic infomation">
+            <mat-dialog-content class="mat-typography" style="width: auto !important;">
+                <mat-list role="list">
+                    <mat-list-item role="listitem"> <small>  Password: </small> <br>    {{currentCandidate.password}}</mat-list-item>
+                    <mat-list-item role="listitem"> <small>Full name: </small> <br>  {{currentCandidate.fullName}} </mat-list-item>
+                    <mat-list-item role="listitem"> <small>Address : </small> <br> {{currentCandidate.address}}</mat-list-item>
+                    <mat-list-item role="listitem"> <small>Phone number: </small> <br>  {{currentCandidate.phoneNumber}} </mat-list-item>
+                  </mat-list>
+            <hr>
+          </mat-dialog-content>
+          <mat-divider></mat-divider>
+        </mat-tab>
+        <mat-tab label="Quiz assigned tasks">
+
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef> Name </th>
+                  <td mat-cell *matCellDef="let element"><b>  {{element.name}} </b></td>
+                </ng-container>
+
+                <ng-container matColumnDef="description">
+                  <th mat-header-cell *matHeaderCellDef> description </th>
+                  <td mat-cell *matCellDef="let element"><b>  {{element.description}}</b> </td>
+                </ng-container>
+
+                <ng-container matColumnDef="timeUpMinutes">
+                  <th mat-header-cell *matHeaderCellDef> timeUpMinutes </th>
+                  <td mat-cell *matCellDef="let element"> <b> {{element.timeUpMinutes}} </b></td>
+                </ng-container>
+
+                <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef> status </th>
+                    <td mat-cell *matCellDef="let element"> <b> {{element.status}}</b> </td>
+                  </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+
+        </mat-tab>
+        <mat-tab label="Quiz result">
+
+          <div style="display: block">
+                <canvas baseChart
+                        [datasets]="radarChartData"
+                        [labels]="radarChartLabels"
+                        [chartType]="radarChartType" > </canvas>
+              </div>
+
+        </mat-tab>
+      </mat-tab-group>
+
+  <mat-dialog-actions align="end">
+  <button mat-icon-button color="accent" (click)="delete()">
+      <mat-icon aria-label="" >delete</mat-icon>
+    </button>
+    <button mat-icon-button color="primary" (click)="edit()">
+      <mat-icon aria-label="">build</mat-icon>
+    </button>
+  </mat-dialog-actions>
+</div>
+
+<mat-card *ngIf="isShowConfirmDelete">
+
+  <h2 mat-dialog-title> Do you want to delete it ?</h2>
+ <mat-dialog-content class="mat-typography" style="width: auto !important;">
+    {{currentCandidate.id}} .  {{currentCandidate.userName}}
+  <hr>
+  {{currentCandidate.fullName}}
+  <hr>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button  (click)="onNoDeleteClick()">Cancel</button>
+  <button mat-button  cdkFocusInitial (click)="onYesDeleteClick()" >OK</button>
+</mat-dialog-actions>
+</mat-card>
