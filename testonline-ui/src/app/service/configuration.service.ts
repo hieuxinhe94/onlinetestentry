@@ -26,9 +26,9 @@ export class ConfigurationService {
   }
 
   getByKey(key: string) {
-    const headers = new HttpHeaders().set('content-type', 'application/json');
+
     return this.http.get<ApplicationConfig[]>(AppConstants.base_url +
-      'ApplicationConfig/GetByKey?key=' + key, {headers});
+      'ApplicationConfig/GetByKey?key=' + key);
   }
 
   addKey(key: string, val: string) {
@@ -36,9 +36,16 @@ export class ConfigurationService {
     applicationConfig.key = key;
     applicationConfig.val = val;
 
-    const headers = new HttpHeaders().set('content-type', 'application/json');
+
   return this.http.get<ApplicationConfig[]>(AppConstants.base_url +
-    'ApplicationConfig/InsertOrUpdate',  {headers}); }
+    'ApplicationConfig/InsertOrUpdate' );
+   }
 
+   updateKeys(configs: ApplicationConfig[] ) {
+     let data = {
+ApplicationConfigs : configs
+            };
+   return this.http.post<any>(AppConstants.base_url +
+     'ApplicationConfig/InsertOrUpdateAll', configs );
+    }
 }
-

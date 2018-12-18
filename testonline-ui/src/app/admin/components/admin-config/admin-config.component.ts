@@ -45,12 +45,24 @@ export class AdminConfigComponent implements OnInit {
     });
   }
 
-  SaveAllConfigurations() {
+  saveAllConfigurations() {
+    let dataToUpdate = [
+      new ApplicationConfig () { key: 'APP_NAME', val: this.APP_NAME },
+      new ApplicationConfig () { key: 'VERSION', val: this.VERSION },
+      new ApplicationConfig () { key: 'ABOUT_COMPANY', val: this.ABOUT_COMPANY },
+      new ApplicationConfig () { key: 'CONTACTS', val: this.CONTACTS },
+      new ApplicationConfig () { key: 'GETTING_STARTED_TEXT', val: this.GETTING_STARTED_TEXT },
+      new ApplicationConfig () { key: 'GETTING_STARTED_MENU_STEP_1', val: this.GETTING_STARTED_MENU_STEP_1 },
+      new ApplicationConfig () { key: 'GETTING_STARTED_MENU_STEP_2', val: this.GETTING_STARTED_MENU_STEP_2 },
+      new ApplicationConfig () { key: 'GETTING_STARTED_MENU_STEP_3', val: this.GETTING_STARTED_MENU_STEP_3 },
+    ];
+
+    this.configurationService
 
   }
 
   onYesClick() {
-    this.SaveAllConfigurations();
+    this.saveAllConfigurations();
   }
 
   onNoClick() {

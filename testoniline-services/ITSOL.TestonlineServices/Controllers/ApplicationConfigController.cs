@@ -4,6 +4,7 @@ using ITSOL.Business.Interfaces;
 using ITSOL.TestonlineServices.Configuraions;
 using ITSOL.TestonlineServices.Model;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using TSOL.Domain.Entities;
 
 namespace ITSOL.TestonlineServices.Controllers
@@ -43,6 +44,18 @@ namespace ITSOL.TestonlineServices.Controllers
             if (ModelState.IsValid)
             {
                 return Ok(applicationConfigBusiness.InsertOrUpdate(mapper.Map<ApplicationConfig>(viewmodel)));
+            }
+            return BadRequest();
+        }
+
+        [HttpPost]
+        [Route("InsertOrUpdateAll")]
+        public IActionResult InsertOrUpdateAll([FromBody] ApplicationConfigListViewModel viewmodel)
+        {
+            if (ModelState.IsValid)
+            {
+                var tmp = viewmodel.ApplicationConfigs.Select(t => new ApplicationConfig { Key = t.Key, Val = t.Val }).ToList();
+                return Ok(applicationConfigBusiness.InsertOrUpdateAll(tmp));
             }
             return BadRequest();
         }

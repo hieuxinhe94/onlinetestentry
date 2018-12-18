@@ -103,7 +103,16 @@ namespace TSOL.DAL.Repository
 
         public int UpdateMany(List<T> ls)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _context.UpdateRange(ls);
+                Save();
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public int DeleleMany(List<int> ls)

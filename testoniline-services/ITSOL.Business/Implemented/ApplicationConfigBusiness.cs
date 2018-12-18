@@ -36,5 +36,20 @@ namespace ITSOL.Business.Implemented
             }
              return this.applicationConfigRepository.Add(entity);
         }
+
+        public int InsertOrUpdateAll(ICollection<ApplicationConfig> entities)
+        {
+            var oldList = this.applicationConfigRepository.GetAll();
+            List<string> keysToUpdate = entities.Select(t => t.Key).ToList();
+            foreach (var item in oldList)
+            {
+                if (keysToUpdate.Contains(item.Key))
+                {
+                    item.Val = entities.FirstOrDefault(t => t.Key == item.Key).Val;
+                }
+            }
+
+            return this.applicationConfigRepository.UpdateMany(oldList.ToList());
+        }
     }
 }

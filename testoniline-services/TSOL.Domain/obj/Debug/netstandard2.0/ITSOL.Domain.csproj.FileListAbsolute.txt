@@ -34,3 +34,15 @@ E:\ITSOL\testoniline-services\TSOL.Domain\obj\Debug\netstandard2.0\ITSOL.Domain.
 E:\ITSOL\testoniline-services\TSOL.Domain\obj\Debug\netstandard2.0\ITSOL.Domain.csproj.CopyComplete
 E:\ITSOL\testoniline-services\TSOL.Domain\obj\Debug\netstandard2.0\ITSOL.Domain.dll
 E:\ITSOL\testoniline-services\TSOL.Domain\obj\Debug\netstandard2.0\ITSOL.Domain.pdb
+D:\Projects\onlinetestentry\testoniline-services\TSOL.Domain\bin\Debug\netstandard2.0\ITSOL.Domain.deps.json
+D:\Projects\onlinetestentry\testoniline-services\TSOL.Domain\bin\Debug\netstandard2.0\ITSOL.Domain.dll
+D:\Projects\onlinetestentry\testoniline-services\TSOL.Domain\bin\Debug\netstandard2.0\ITSOL.Domain.pdb
+D:\Projects\onlinetestentry\testoniline-services\TSOL.Domain\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.dll
+D:\Projects\onlinetestentry\testoniline-services\TSOL.Domain\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.xml
+D:\Projects\onlinetestentry\testoniline-services\TSOL.Domain\obj\Debug\netstandard2.0\ITSOL.Domain.csprojAssemblyReference.cache
+D:\Projects\onlinetestentry\testoniline-services\TSOL.Domain\obj\Debug\netstandard2.0\ITSOL.Domain.csproj.CoreCompileInputs.cache
+D:\Projects\onlinetestentry\testoniline-services\TSOL.Domain\obj\Debug\netstandard2.0\ITSOL.Domain.AssemblyInfoInputs.cache
+D:\Projects\onlinetestentry\testoniline-services\TSOL.Domain\obj\Debug\netstandard2.0\ITSOL.Domain.AssemblyInfo.cs
+D:\Projects\onlinetestentry\testoniline-services\TSOL.Domain\obj\Debug\netstandard2.0\ITSOL.Domain.csproj.CopyComplete
+D:\Projects\onlinetestentry\testoniline-services\TSOL.Domain\obj\Debug\netstandard2.0\ITSOL.Domain.dll
+D:\Projects\onlinetestentry\testoniline-services\TSOL.Domain\obj\Debug\netstandard2.0\ITSOL.Domain.pdb

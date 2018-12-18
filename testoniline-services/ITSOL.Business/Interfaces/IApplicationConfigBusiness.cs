@@ -7,6 +7,7 @@ namespace ITSOL.Business.Interfaces
     {
         ICollection<ApplicationConfig> GetAll();
         ApplicationConfig getByKey(string key);
-        int InsertOrUpdate(ApplicationConfig entity); 
+        int InsertOrUpdate(ApplicationConfig entity);
+        int InsertOrUpdateAll(ICollection<ApplicationConfig> entities);
     }
 }

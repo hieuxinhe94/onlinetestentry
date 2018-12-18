@@ -25,9 +25,6 @@ export class QuizService {
     return this.quizAll;
   }
 
-
-
-
   getFullQuiz() {
     return this.http.get<Quiz[]>(AppConstants.base_url + 'Quiz' );
   }
@@ -37,31 +34,23 @@ export class QuizService {
   }
 
    insertOrUpdateQuestion(question: Question) {
-   const headers = new HttpHeaders().set('content-type', 'application/json');
-    return this.http.post<any>(AppConstants.base_url + 'Quiz/insertOrUpdateQuestionToQuiz',   question , { headers});
+    return this.http.post<any>(AppConstants.base_url + 'Quiz/insertOrUpdateQuestionToQuiz',   question );
   }
 
  createNewQuiz(subject: Subject) {
-    const headers = new HttpHeaders().set('content-type', 'application/json');
-    return  this.http.post<any>(AppConstants.base_url + 'Quiz/createNewSubject',   subject, { headers});
+    return  this.http.post<any>(AppConstants.base_url + 'Quiz/createNewSubject',   subject);
   }
 
    insertOrUpdateAnswer(answer: Answer) {
-    const headers = new HttpHeaders().set('content-type', 'application/json');
-    return  this.http.post<any>(AppConstants.base_url + 'Quiz/insertOrUpdateAnswerToQuestion',   answer, {headers});
+    return  this.http.post<any>(AppConstants.base_url + 'Quiz/insertOrUpdateAnswerToQuestion',   answer);
   }
 
    deleteQuestion(q: Question) {
-    const headers = new HttpHeaders().set('content-type', 'application/json');
-    return  this.http.post<any>(AppConstants.base_url + 'Quiz/deleteQuestion',  q.id , {headers});
+    return  this.http.post<any>(AppConstants.base_url + 'Quiz/deleteQuestion',  q.id );
   }
 
    deleteAnswer(a: Answer) {
-    const headers = new HttpHeaders().set('content-type', 'application/json');
-    return this.http.post<any>(AppConstants.base_url + 'Quiz/deleteAnswer',   a.id, {headers});
+    return this.http.post<any>(AppConstants.base_url + 'Quiz/deleteAnswer',   a.id);
   }
-
-
-
 
 }
