@@ -125,7 +125,11 @@ namespace ITSOL.Business.Implemented
                 // total question 
                 int totalQuestion = CalculateTotalQuestions(quiz);
 
-                float mark = rightAnswer * 100 / (float) totalQuestion;
+                float mark = 0;
+                if (totalQuestion >= 1)
+                {
+                     mark = rightAnswer * 100 / (float)totalQuestion;
+                }
 
                 var newResult = new CandidateQuizAssignAndResult
                 {
@@ -133,7 +137,7 @@ namespace ITSOL.Business.Implemented
                     Mark = mark,
                     DateSubmited = DateTime.Now,
                     CandidateQuizAssignId = newestQuizAssigned.Id,
-                    // lam tron diem
+                    // roudup mark
                     RightQuestionCount = (int)rightAnswer,
                     AnsweredQuestionCount = totalAnswered,
                     TotalQuestionCount = totalQuestion,

@@ -75,7 +75,7 @@ export class QuizComponent implements OnInit {
     const data = await this.candidateService.getCandidateQuizAssigned;
     if (data !== undefined) {
       this.quiz = data.quizes.filter(t => t.name === this.subject)[0];
-      debugger;
+   
       if (this.quiz.questions === null) {
         await this.loadQuestionAtTheFirstTime();
       } else {

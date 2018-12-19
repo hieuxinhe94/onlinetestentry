@@ -97,7 +97,7 @@ export class LoginComponent implements OnInit {
 
   openSnackBar() {
     this.snackBar.openFromComponent(SnackbarComponent, {
-      duration: 5000,
+      duration: 1000,
       data: 'message login show',
       announcementMessage: 'message from login component',
       horizontalPosition: 'center'

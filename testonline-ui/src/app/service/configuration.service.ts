@@ -9,20 +9,27 @@ import { AppConstants } from '../common/app.constants';
 })
 export class ConfigurationService {
 
-  configs = new BehaviorSubject<ApplicationConfig[]>(null) ;
+  configs = new BehaviorSubject<ApplicationConfig[]>(null);
 
+  configurations: ApplicationConfig[] = []; 
+  
   constructor(private http: HttpClient) { }
 
   setConfigs(val: ApplicationConfig[]) {
+    this.configurations = val;
     this.configs.next(val);
   }
 
+  get getConfigurations () {
+    return this.configurations;
+  }
+  
   getConfigs() {
-    return this.configs.asObservable();
+   return this.configs.asObservable();
   }
 
   getAllConfigurations() {
-    return this.http.get<ApplicationConfig[]>(AppConstants.base_url +'ApplicationConfig');
+    return this.http.get<ApplicationConfig[]>(AppConstants.base_url + 'ApplicationConfig');
   }
 
   getByKey(key: string) {
@@ -37,15 +44,16 @@ export class ConfigurationService {
     applicationConfig.val = val;
 
 
-  return this.http.get<ApplicationConfig[]>(AppConstants.base_url +
-    'ApplicationConfig/InsertOrUpdate' );
-   }
+    return this.http.get<ApplicationConfig[]>(AppConstants.base_url +
+      'ApplicationConfig/InsertOrUpdate');
+  }
 
-   updateKeys(configs: ApplicationConfig[] ) {
-     let data = {
-ApplicationConfigs : configs
-            };
-   return this.http.post<any>(AppConstants.base_url +
-     'ApplicationConfig/InsertOrUpdateAll', configs );
-    }
+  updateKeys(configs: ApplicationConfig[]) {
+    let data = {
+      ApplicationConfigs: configs
+    };
+
+    return this.http.post<any>(AppConstants.base_url +
+      'ApplicationConfig/InsertOrUpdateAll', data);
+  }
 }
